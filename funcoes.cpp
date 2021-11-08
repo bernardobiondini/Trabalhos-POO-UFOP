@@ -23,7 +23,7 @@ void le_cria_arquivos(){
 	fclose(arquivo_escrita);
 }
 
-void cria_imoveis(vector<Casa*> casas, vector<Apartamento*> aps, vector<Chacara*> chacs){
+void cria_imoveis(vector<Casa*> &casas, vector<Apartamento*> &aps, vector<Chacara*> &chacs){
 	
 	ifstream arquivo_leitura_final;
 	arquivo_leitura_final.open("new_database.txt", ifstream::in);
