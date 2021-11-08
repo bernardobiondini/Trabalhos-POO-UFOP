@@ -3,7 +3,7 @@
 
 #include "classes.h"
 
-void cria_imoveis(vector<Casa*> *casas, vector<Apartamento*> *aps, vector<Chacara*> *chacs);
+void cria_imoveis(vector<Casa*> casas, vector<Apartamento*> aps, vector<Chacara*> chacs);
 
 void le_cria_arquivos();
 
