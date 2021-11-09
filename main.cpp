@@ -10,17 +10,15 @@ int main(){
 	
 	le_cria_arquivos();
 	cria_imoveis(casas, aps, chacs);
+
 	
-	cout << casas[0]->get_id() << endl;
-	cout << casas[0]->get_prop() << endl;
-	cout << casas[5]->get_id() << endl;
+	cout << *casas[0] << endl;
+	cout << *casas[5] << endl;
 	
-	cout << aps[0]->get_id() << endl;
-	cout << aps[0]->get_prop() << endl;
-	cout << aps[5]->get_id() << endl;
+	cout << *aps[0] << endl;
+	cout << *aps[5] << endl;
 	
-	cout << chacs[0]->get_id() << endl;
-	cout << chacs[0]->get_prop() << endl;
-	cout << chacs[5]->get_id() << endl;
+	cout << *chacs[0] << endl;
+	cout << *chacs[5] << endl;
 	return 0;
 }

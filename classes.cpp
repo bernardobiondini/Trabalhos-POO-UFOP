@@ -75,6 +75,22 @@ void Imovel::set_banhei(int banhei){
 	this->banhei = banhei;
 }
 
+void Imovel::print(ostream& out){
+	out << endl
+	<< "Proprietário: "<< this->prop
+	<< "\n\t Preço: " << this->valor
+ 	<< "\n\t Quartos: " << this->quartos
+ 	<< "\n\t Rua: " << this->rua
+ 	<< "\n\t Bairro: " << this->bairro
+ 	<< "\n\t Cidade: " << this->cidade;
+}
+
+std::ostream& operator<<(std::ostream& out, Imovel& i){
+	i.print(out);
+
+	return out;
+}
+
 /////////////////////////////  METODOS CASA ///////////////////////////////////////
 
 Casa::Casa(){
@@ -105,6 +121,18 @@ bool Casa::get_sala_jantar(){
 
 void Casa::set_sala_jantar(bool sala_jantar){
 	this->sala_jantar = sala_jantar;
+}
+
+void Casa::print(ostream& out){
+	Imovel::print(out);
+	out << "\n\t Andares: " << this->get_andares();
+	out << "\n\t " << (this->get_sala_jantar() ? "Possui sala de jantar" : "Sem sala de jantar");
+}
+
+std::ostream& operator<<(std::ostream& out, Casa& c){
+	c.print(out);
+
+	return out;
 }
 
 
@@ -155,6 +183,20 @@ bool Apartamento::get_sacada(){
 
 void Apartamento::set_sacada(bool sacada){
 	this->sacada = sacada;
+}
+
+void Apartamento::print(ostream& out){
+	Imovel::print(out);
+	out << "\n\t Andar: " << this->get_andar()
+	<< "\n\t Taxa de condominio: " << this->get_taxa_condo()
+	<< "\n\t " << (this->get_elev() ? "Possui elevador" : "Sem elevador")
+	<< "\n\t " << (this->get_sacada() ? "Possui sacada" : "Sem sacada");
+}
+
+std::ostream& operator<<(std::ostream& out, Apartamento& a){
+	a.print(out);
+
+	return out;
 }
 
 
@@ -213,4 +255,19 @@ bool Chacara::get_piscina(){
 
 void Chacara::set_piscina(bool piscina){
 	this->piscina = piscina;
+}
+
+void Chacara::print(ostream& out){
+	Imovel::print(out);
+	out << "\n\t " << (this->get_salao_festa() ? "Possui salão de festa" : "Sem salão de festa")
+	<< "\n\t " << (this->get_salao_jogos() ? "Possui salão de jogos" : "Sem salão de jogos")
+	<< "\n\t " << (this->get_campo_fut() ? "Possui campo de futebol" : "Sem campo de futebol")
+	<< "\n\t " << (this->get_churras() ? "Possui churrasqueira" : "Sem churrasqueira")
+	<< "\n\t " << (this->get_piscina() ? "Possui piscina" : "Sem piscina");
+}
+
+std::ostream& operator<<(std::ostream& out, Chacara& c){
+	c.print(out);
+
+	return out;
 }
