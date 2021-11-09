@@ -22,6 +22,8 @@ class Imovel{
 	int banhei;
 		
 	public:
+		Imovel(const int = 0, const float = 0.0, const string = "" , const string = "", const string = "", const string = "",
+		const int = 0, const int = 0, const int = 0);
 		int get_id();
 		void set_id(int id);
 		float get_valor();
@@ -40,8 +42,10 @@ class Imovel{
 		void set_quartos(int quartos);
 		int get_banhei();
 		void set_banhei(int banhei);
-		void print(ostream&);
+		virtual void print(ostream&);
 		friend std::ostream& operator<<(std::ostream&, Imovel&);
+		static vector<Imovel*> ler_dados();
+		static vector<Imovel*> cria_vetor(vector<Imovel*> imoveis);
 };
 
 class Casa : public Imovel{
@@ -49,7 +53,8 @@ class Casa : public Imovel{
 	bool sala_jantar;
 	
 	public:
-		Casa();
+		Casa(const int = 0, const float = 0.0, const string = "" , const string = "", const string = "", const string = "",
+		const int = 0, const int = 0, const int = 0, const int = 0, const bool = false);
 		~Casa();
 		int get_andares();
 		void set_andares(int andares);
@@ -66,7 +71,9 @@ class Apartamento : public Imovel{
 	bool sacada;
 	
 	public:
-		Apartamento();
+		Apartamento(const int = 0, const float = 0.0, const string = "" , const string = "", const string = "", const string = "",
+		const int = 0, const int = 0, const int = 0, const int = 0, const float = 0.0, 
+		const bool = false, const bool = false);
 		~Apartamento();
 		int get_andar();
 		void set_andar(int andar);
@@ -88,7 +95,9 @@ class Chacara : public Imovel{
 	bool piscina;
 	
 	public:
-		Chacara();
+		Chacara(const int = 0, const float = 0.0, const string = "" , const string = "", const string = "", const string = "",
+		const int = 0, const int = 0, const int = 0, const bool = false, const bool = false, 
+		const bool = false, const bool = false, const bool = false);
 		~Chacara();
 		bool get_salao_festa();
 		void set_salao_festa(bool salao_festa);

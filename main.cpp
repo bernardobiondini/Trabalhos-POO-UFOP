@@ -4,21 +4,10 @@
 using namespace std;
 
 int main(){
-	vector<Apartamento*> aps;
-	vector<Casa*> casas;
-	vector<Chacara*> chacs;
+	vector<Imovel*> imoveis;
 	
-	le_cria_arquivos();
-	cria_imoveis(casas, aps, chacs);
+	imoveis = Imovel::ler_dados();
 
-	
-	cout << *casas[0] << endl;
-	cout << *casas[5] << endl;
-	
-	cout << *aps[0] << endl;
-	cout << *aps[5] << endl;
-	
-	cout << *chacs[0] << endl;
-	cout << *chacs[5] << endl;
+	cout << *imoveis[0] << endl;
 	return 0;
 }

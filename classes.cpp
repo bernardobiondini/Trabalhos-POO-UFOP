@@ -1,8 +1,17 @@
 #include "classes.h"
 using namespace std;
 
+using std::endl;
+using std::string;
+using std::stoi;
+
 //Esse arquivo basicamente contem setters, getters, construtores e destrutores das classes criadas
 ///////////////////////////  METODOS IMOVEL //////////////////////////////////
+Imovel::Imovel(const int id, const float valor, const string prop, const string rua, const string bairro, 
+	const string cidade, const int num, const int quartos, const int banhei):
+	id(id), valor(valor), prop(prop), rua(rua), bairro(bairro), cidade(cidade), 
+	num(num), quartos(quartos), banhei(banhei){}
+
 int Imovel::get_id(){
 	return id;
 }
@@ -91,21 +100,182 @@ std::ostream& operator<<(std::ostream& out, Imovel& i){
 	return out;
 }
 
+vector<Imovel*> Imovel::ler_dados(){
+	char letra;
+    string linha_inteira;
+    
+    FILE *arquivo_r = fopen("database_imoveis.txt", "r");;
+    FILE *arquivo_w = fopen("dados.txt", "w");;
+     
+    while(true){
+        letra = (char) fgetc(arquivo_r);
+        if(feof(arquivo_r))
+            break;
+        if(letra == ';')
+            fputc('\n', arquivo_w);
+        else
+            fputc(letra, arquivo_w);
+    }
+    
+    fclose(arquivo_r);
+    fclose(arquivo_w);
+	
+	vector<Imovel*> imoveis;
+    return cria_vetor(imoveis);
+}
+
+vector<Imovel*> Imovel::cria_vetor(vector<Imovel*> imoveis){
+	ifstream gera_dados;
+	gera_dados.open("dados.txt", ifstream::in);
+    
+    int cont = 0;
+	string palavra;
+	stringstream ss;
+    
+    while(getline(gera_dados, palavra)){
+        if(palavra == "apartamento") {
+			getline(gera_dados, palavra);
+		    float valor = stof(palavra);
+
+			ss >> palavra;
+			ss << valor;
+		
+		    getline(gera_dados, palavra);
+		    string prop = palavra;
+		
+		    getline(gera_dados, palavra);
+		    string rua = palavra;
+		
+		    getline(gera_dados, palavra);
+		    string bairro = palavra;
+		
+		    getline(gera_dados, palavra);
+		    string cidade = palavra;
+
+		    getline(gera_dados, palavra);
+		    int num = stoi(palavra);
+		
+		    getline(gera_dados, palavra);
+		    int quartos = stoi(palavra);
+		
+		    getline(gera_dados, palavra);
+		    int banhei = stoi(palavra);
+            
+            getline(gera_dados, palavra);
+            int andar = stoi(palavra);
+            
+            getline(gera_dados, palavra);
+            float taxa_condominio = stof(palavra);
+            
+            getline(gera_dados, palavra);
+            int elevador = stoi(palavra);
+            
+            getline(gera_dados, palavra);
+            int sacada = stoi(palavra);
+			
+			imoveis.push_back(new Apartamento(
+				cont++, valor, prop, rua, bairro, cidade, num, quartos, banhei, andar, taxa_condominio, elevador, sacada
+			));
+        }
+        else if(palavra == "casa") {
+            
+			getline(gera_dados, palavra);
+		    float valor = stof(palavra);
+		
+		    getline(gera_dados, palavra);
+		    string prop = palavra;
+		
+		    getline(gera_dados, palavra);
+		    string rua = palavra;
+		
+		    getline(gera_dados, palavra);
+		    string bairro = palavra;
+		
+		    getline(gera_dados, palavra);
+		    string cidade = palavra;
+		
+		    getline(gera_dados, palavra);
+		    int num = stoi(palavra);
+		
+		    getline(gera_dados, palavra);
+		    int quartos = stoi(palavra);
+		
+		    getline(gera_dados, palavra);
+		    int banhei = stoi(palavra);
+            
+            getline(gera_dados, palavra);
+            int andares = stoi(palavra);
+			
+			
+			int sala_jantar;
+			
+
+            getline(gera_dados, palavra);
+
+			ss << palavra;
+			ss >> sala_jantar;
+
+			imoveis.push_back(new Casa(
+				cont++, valor, prop, rua, bairro, cidade, num, quartos, banhei, andares, sala_jantar
+			));
+			
+        }
+        else if(palavra == "chacara") {
+		    getline(gera_dados, palavra);
+		    float valor = stof(palavra);
+		
+		    getline(gera_dados, palavra);
+		    string prop = palavra;
+		
+		    getline(gera_dados, palavra);
+		    string rua = palavra;
+		
+		    getline(gera_dados, palavra);
+		    string bairro = palavra;
+		
+		    getline(gera_dados, palavra);
+		    string cidade = palavra;
+		
+		    getline(gera_dados, palavra);
+		    int num = stoi(palavra);
+		
+		    getline(gera_dados, palavra);
+		    int quartos = stoi(palavra);
+		
+		    getline(gera_dados, palavra);
+		    int banhei = stoi(palavra);
+            
+            getline(gera_dados, palavra);
+            int salao_festa = stoi(palavra);
+            
+            getline(gera_dados, palavra);
+            int salao_jogos = stoi(palavra);
+            
+            getline(gera_dados, palavra);
+            int campo_fut = stoi(palavra);
+            
+            getline(gera_dados, palavra);
+            int churras = stoi(palavra);
+            
+            getline(gera_dados, palavra);
+            int piscina = stoi(palavra);
+
+			imoveis.push_back(new Chacara(
+				cont++, valor, prop, rua, bairro, cidade, num, quartos, banhei, salao_festa, salao_jogos, 
+				campo_fut, churras, piscina
+			));
+        }
+    }
+
+    return imoveis;
+}
+
 /////////////////////////////  METODOS CASA ///////////////////////////////////////
 
-Casa::Casa(){
-	set_id(0);
-	set_valor(0.00);
-	set_prop("x");
-	set_rua("x");
-	set_bairro("x");
-	set_cidade("x");
-	set_num(0);
-	set_quartos(0);
-	set_banhei(0);
-	set_andares(0);
-	set_sala_jantar(false);
-}
+Casa::Casa(const int id, const float valor, const string prop, const string rua, const string bairro, 
+	const string cidade, const int num, const int quartos, const int banhei, const int andares, const bool sala_jantar): 
+    Imovel(id, valor, prop, rua, bairro, cidade, num, quartos, banhei),
+    andares(andares), sala_jantar(sala_jantar){}
 
 int Casa::get_andares(){
 	return andares;
@@ -137,21 +307,11 @@ std::ostream& operator<<(std::ostream& out, Casa& c){
 
 
 ///////////////////////////  METODOS APARTAMENTO //////////////////////////////////
-Apartamento::Apartamento(){
-	set_id(0);
-	set_valor(0.00);
-	set_prop("x");
-	set_rua("x");
-	set_bairro("x");
-	set_cidade("x");
-	set_num(0);
-	set_quartos(0);
-	set_banhei(0);
-	set_andar(0);
-	set_taxa_condo(0.00);
-	set_elev(false);
-	set_sacada(false);
-}
+Apartamento::Apartamento(const int id, const float valor, const string prop, const string rua, const string bairro, 
+	const string cidade, const int num, const int quartos, const int banhei, const int andar,
+	const float taxa_condo, const bool elev, const bool sacada):
+	Imovel(id, valor, prop, rua, bairro, cidade, num, quartos, banhei),
+	andar(andar), taxa_condo(taxa_condo),elev(elev), sacada(sacada){}
 
 int Apartamento::get_andar(){
 	return andar;
@@ -201,22 +361,13 @@ std::ostream& operator<<(std::ostream& out, Apartamento& a){
 
 
 /////////////////////////////  METODOS CHACARA ////////////////////////////////////
-Chacara::Chacara(){
-	set_id(0);
-	set_valor(0.00);
-	set_prop("x");
-	set_rua("x");
-	set_bairro("x");
-	set_cidade("x");
-	set_num(0);
-	set_quartos(0);
-	set_banhei(0);
-	set_salao_festa(false);
-	set_salao_jogos(false);
-	set_campo_fut(false);
-	set_churras(false);
-	set_piscina(false);
-}
+Chacara::Chacara(const int id, const float valor, const string prop, const string rua, const string bairro, 
+	const string cidade, const int num, const int quartos, const int banhei,
+	const bool salao_festa, const bool salao_jogos, const bool campo_fut, const bool churras,
+	const bool piscina): 
+	Imovel(id, valor, prop, rua, bairro, cidade, num, quartos, banhei),
+	salao_festa(salao_festa), salao_jogos(salao_jogos), campo_fut(campo_fut), churras(churras), 
+	piscina(piscina){}
 bool Chacara::get_salao_festa(){
 	return salao_festa;
 }
