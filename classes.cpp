@@ -85,8 +85,8 @@ void Imovel::set_banhei(int banhei){
 }
 
 void Imovel::print(ostream& out){
-	out << endl
-	<< "Proprietário: "<< this->prop
+	out << "\n-----------------------------------------------------------------"
+	<< "\nProprietário: "<< this->prop
 	<< "\n\t Preço: " << this->valor
  	<< "\n\t Quartos: " << this->quartos
  	<< "\n\t Rua: " << this->rua
@@ -295,8 +295,9 @@ void Casa::set_sala_jantar(bool sala_jantar){
 
 void Casa::print(ostream& out){
 	Imovel::print(out);
-	out << "\n\t Andares: " << this->get_andares();
-	out << "\n\t " << (this->get_sala_jantar() ? "Possui sala de jantar" : "Sem sala de jantar");
+	out << "\n\t Andares: " << this->get_andares()
+	<< "\n\t " << (this->get_sala_jantar() ? "Possui sala de jantar" : "Sem sala de jantar")
+	<< "\n-----------------------------------------------------------------";
 }
 
 std::ostream& operator<<(std::ostream& out, Casa& c){
@@ -350,7 +351,9 @@ void Apartamento::print(ostream& out){
 	out << "\n\t Andar: " << this->get_andar()
 	<< "\n\t Taxa de condominio: " << this->get_taxa_condo()
 	<< "\n\t " << (this->get_elev() ? "Possui elevador" : "Sem elevador")
-	<< "\n\t " << (this->get_sacada() ? "Possui sacada" : "Sem sacada");
+	<< "\n\t " << (this->get_sacada() ? "Possui sacada" : "Sem sacada")
+	<< "\n-----------------------------------------------------------------";
+
 }
 
 std::ostream& operator<<(std::ostream& out, Apartamento& a){
@@ -414,7 +417,8 @@ void Chacara::print(ostream& out){
 	<< "\n\t " << (this->get_salao_jogos() ? "Possui salão de jogos" : "Sem salão de jogos")
 	<< "\n\t " << (this->get_campo_fut() ? "Possui campo de futebol" : "Sem campo de futebol")
 	<< "\n\t " << (this->get_churras() ? "Possui churrasqueira" : "Sem churrasqueira")
-	<< "\n\t " << (this->get_piscina() ? "Possui piscina" : "Sem piscina");
+	<< "\n\t " << (this->get_piscina() ? "Possui piscina" : "Sem piscina")
+	<< "\n-----------------------------------------------------------------";
 }
 
 std::ostream& operator<<(std::ostream& out, Chacara& c){
