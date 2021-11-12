@@ -5,9 +5,74 @@ using namespace std;
 
 int main(){
 	vector<Imovel*> imoveis;
+	vector<Imovel*> imoveis_retorno;
 	
 	imoveis = Imovel::ler_dados();
 
-	cout << *imoveis[0] << endl;
+	int funcao, quartos;
+	float valor;
+	string prop, cidade, tipo;
+	cout << "DIgite o número da função desejada: ";
+	cin >> funcao;
+
+	switch(funcao){
+		case 2:
+			cout << "Digite o nome desejado: ";
+			cin.ignore();
+			getline( cin, prop);
+			if(func2(imoveis, prop)) cout << prop << " é proprietário\n";
+			else cout << prop << " não é proprietário\n";
+		break;
+
+		case 3:
+			cout << "Digite o valor desejado: ";
+			cin >> valor;
+			imoveis_retorno = func3(&imoveis, valor);
+			for(auto & i : imoveis_retorno){
+				cout << *i;
+			}
+			imoveis_retorno.clear();
+		break;
+
+		case 4:
+			cout << "Digite a quantidade de quartos desejada: ";
+			cin >> quartos;
+			imoveis_retorno = func4(&imoveis, quartos);
+			for(auto i : imoveis_retorno){
+				cout << *i;
+			}
+			imoveis_retorno.clear();
+		break;
+
+		case 5:
+			cout << "Digite o tipo desejado: ";
+			cin.ignore();
+			cin >> tipo;
+			imoveis_retorno = func5(&imoveis, tipo);
+			for(auto i : imoveis_retorno){
+				cout << *i;
+			}
+			imoveis_retorno.clear();
+		break;
+
+		case 6:
+			cout << "Digite a cidade desejada: ";
+			cin.ignore();
+			cin >> cidade;
+			imoveis_retorno = func6(&imoveis, cidade);
+			for(auto i = imoveis_retorno.end(); i >= imoveis_retorno.begin(); i--){
+				cout << *i;
+			}
+			imoveis_retorno.clear();
+		break;
+
+		case 7:
+
+		break;
+
+		case 8:
+
+		break;
+	}
 	return 0;
 }

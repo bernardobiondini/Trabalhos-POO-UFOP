@@ -297,7 +297,7 @@ void Casa::print(ostream& out){
 	Imovel::print(out);
 	out << "\n\t Andares: " << this->get_andares()
 	<< "\n\t " << (this->get_sala_jantar() ? "Possui sala de jantar" : "Sem sala de jantar")
-	<< "\n-----------------------------------------------------------------";
+	<< endl;
 }
 
 std::ostream& operator<<(std::ostream& out, Casa& c){
@@ -352,7 +352,7 @@ void Apartamento::print(ostream& out){
 	<< "\n\t Taxa de condominio: " << this->get_taxa_condo()
 	<< "\n\t " << (this->get_elev() ? "Possui elevador" : "Sem elevador")
 	<< "\n\t " << (this->get_sacada() ? "Possui sacada" : "Sem sacada")
-	<< "\n-----------------------------------------------------------------";
+	<< endl;
 
 }
 
@@ -418,7 +418,7 @@ void Chacara::print(ostream& out){
 	<< "\n\t " << (this->get_campo_fut() ? "Possui campo de futebol" : "Sem campo de futebol")
 	<< "\n\t " << (this->get_churras() ? "Possui churrasqueira" : "Sem churrasqueira")
 	<< "\n\t " << (this->get_piscina() ? "Possui piscina" : "Sem piscina")
-	<< "\n-----------------------------------------------------------------";
+	<< endl;
 }
 
 std::ostream& operator<<(std::ostream& out, Chacara& c){

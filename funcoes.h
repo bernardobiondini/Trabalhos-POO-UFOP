@@ -3,15 +3,15 @@
 
 #include "classes.h"
 
-void cria_imoveis(vector<Casa*> &casas, vector<Apartamento*> &aps, vector<Chacara*> &chacs);
+bool func2 (vector<Imovel*> imoveis, string propietario);
 
-void le_cria_arquivos();
+vector<Imovel*> func3 (vector<Imovel*>*, float);
 
+vector<Imovel*> func4 (vector<Imovel*>*, int);
 
+vector<Imovel*> func5 (vector<Imovel*>*, string);
 
-
-
-
+vector<Imovel*> func6 (vector<Imovel*>*, string);
 
 
 #endif
