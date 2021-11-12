@@ -38,7 +38,7 @@ int main(){
 			cout << "Digite a quantidade de quartos desejada: ";
 			cin >> quartos;
 			imoveis_retorno = func4(&imoveis, quartos);
-			for(auto i : imoveis_retorno){
+			for(auto &i : imoveis_retorno){
 				cout << *i;
 			}
 			imoveis_retorno.clear();
@@ -48,8 +48,9 @@ int main(){
 			cout << "Digite o tipo desejado: ";
 			cin.ignore();
 			cin >> tipo;
+			cout << tipo << endl;
 			imoveis_retorno = func5(&imoveis, tipo);
-			for(auto i : imoveis_retorno){
+			for(auto &i : imoveis_retorno){
 				cout << *i;
 			}
 			imoveis_retorno.clear();
@@ -60,8 +61,8 @@ int main(){
 			cin.ignore();
 			cin >> cidade;
 			imoveis_retorno = func6(&imoveis, cidade);
-			for(auto i = imoveis_retorno.end(); i >= imoveis_retorno.begin(); i--){
-				cout << *i;
+			for(auto i = imoveis_retorno.rbegin(); i != imoveis_retorno.rend(); ++i){
+				cout << **i;
 			}
 			imoveis_retorno.clear();
 		break;

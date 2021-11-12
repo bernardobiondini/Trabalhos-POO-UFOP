@@ -31,9 +31,9 @@ vector<Imovel*> func5(vector<Imovel*> *imoveis, string tipo){
 	vector<Imovel*> imoveis_tipo;
 
 	for (auto & i : *imoveis){
-		if ((typeid(i) == typeid(Casa)) && (tipo == "casa")) imoveis_tipo.push_back(i);
-		else if ((typeid(i) == typeid(Apartamento)) && (tipo == "apartamento")) imoveis_tipo.push_back(i);
-		else if ((typeid(i) == typeid(Chacara)) && (tipo == "chacara")) imoveis_tipo.push_back(i);
+		if ((typeid(*i) == typeid(Casa)) && (tipo == "casa")) imoveis_tipo.push_back(i);
+		else if ((typeid(*i) == typeid(Apartamento)) && (tipo == "apartamento")) imoveis_tipo.push_back(i);
+		else if ((typeid(*i) == typeid(Chacara)) && (tipo == "chacara")) imoveis_tipo.push_back(i);
 	}
 
 	return imoveis_tipo;
