@@ -16,6 +16,10 @@ int main(){
 	cin >> funcao;
 	
 	switch(funcao){
+		case 1:
+			for(unsigned int i = 0; i < imoveis.size(); i++)
+				cout << *imoveis.at(i);
+		break;
 		case 2:
 			cout << "Digite o nome desejado: ";
 			cin.ignore();
@@ -85,7 +89,7 @@ int main(){
 			vetor7 = func7(&imoveis, prop);			
 			if(!vetor7.empty()){
 		 		cout << "Os imoveis de " << prop << " sao:" << endl;
-                for(int i = 0; i < vetor7.size(); i++){
+                for(unsigned int i = 0; i < vetor7.size(); i++){
                     cout << **vetor7.at(i) << endl;
             	}
         	}

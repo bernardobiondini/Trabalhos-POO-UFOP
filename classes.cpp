@@ -104,8 +104,8 @@ vector<Imovel*> Imovel::ler_dados(){
 	char letra;
     string linha_inteira;
     
-    FILE *arquivo_r = fopen("database_imoveis.txt", "r");;
-    FILE *arquivo_w = fopen("dados.txt", "w");;
+    FILE *arquivo_r = fopen("database_imoveis.txt", "r");
+    FILE *arquivo_w = fopen("dados.txt", "w");
      
     while(true){
         letra = (char) fgetc(arquivo_r);
