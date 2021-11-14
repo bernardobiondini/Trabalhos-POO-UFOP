@@ -12,25 +12,31 @@ int main(){
 	int funcao, quartos;
 	float valor;
 	string prop, cidade, tipo;
-	cout << "DIgite o número da função desejada: ";
+	cout << "Digite o numero da funcao desejada: ";
 	cin >> funcao;
-
+	
+	for(int i = 0; i < imoveis.size(); i++){
+		cout << *imoveis.at(i) << endl;
+	}
+	
 	switch(funcao){
 		case 2:
 			cout << "Digite o nome desejado: ";
 			cin.ignore();
 			getline( cin, prop);
-			if(func2(imoveis, prop)) cout << prop << " é proprietário\n";
-			else cout << prop << " não é proprietário\n";
+			if(func2(imoveis, prop)) cout << prop << " Eh proprietario\n";
+			else cout << prop << " Nao eh proprietario\n";
 		break;
 
 		case 3:
 			cout << "Digite o valor desejado: ";
 			cin >> valor;
 			imoveis_retorno = func3(&imoveis, valor);
-			for(auto & i : imoveis_retorno){
-				cout << *i;
-			}
+			//for(auto & i : imoveis_retorno){
+			//	cout << *i;
+			//}
+			for(int i = 0; i < imoveis_retorno.size(); i++)
+				cout << *imoveis_retorno.at(i);
 			imoveis_retorno.clear();
 		break;
 
@@ -38,9 +44,11 @@ int main(){
 			cout << "Digite a quantidade de quartos desejada: ";
 			cin >> quartos;
 			imoveis_retorno = func4(&imoveis, quartos);
-			for(auto &i : imoveis_retorno){
-				cout << *i;
-			}
+			//for(auto &i : imoveis_retorno){
+			//	cout << *i;
+			//}
+			for(int i = 0; i < imoveis_retorno.size(); i++)
+				cout << *imoveis_retorno.at(i);
 			imoveis_retorno.clear();
 		break;
 
@@ -50,9 +58,11 @@ int main(){
 			cin >> tipo;
 			cout << tipo << endl;
 			imoveis_retorno = func5(&imoveis, tipo);
-			for(auto &i : imoveis_retorno){
-				cout << *i;
-			}
+			//for(auto &i : imoveis_retorno){
+			//	cout << *i;
+			//}
+			for(int i = 0; i < imoveis_retorno.size(); i++)
+				cout << *imoveis_retorno.at(i);
 			imoveis_retorno.clear();
 		break;
 
@@ -61,9 +71,11 @@ int main(){
 			cin.ignore();
 			cin >> cidade;
 			imoveis_retorno = func6(&imoveis, cidade);
-			for(auto i = imoveis_retorno.rbegin(); i != imoveis_retorno.rend(); ++i){
-				cout << **i;
-			}
+			//for(auto i = imoveis_retorno.rbegin(); i != imoveis_retorno.rend(); ++i){
+			//	cout << **i;
+			//}
+			for(int i = imoveis_retorno.size() - 1; i >= 0; i--)
+				cout << *imoveis_retorno.at(i);
 			imoveis_retorno.clear();
 		break;
 
