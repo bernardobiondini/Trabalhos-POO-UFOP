@@ -45,7 +45,8 @@ class Imovel{
 		virtual void print(ostream&);
 		friend std::ostream& operator<<(std::ostream&, Imovel&);
 		static vector<Imovel*> ler_dados();
-		static vector<Imovel*> cria_vetor(vector<Imovel*> imoveis);
+		static vector<Imovel*> cria_vetor(vector<Imovel*> );
+		void imprime(FILE *, Imovel*);
 };
 
 class Casa : public Imovel{
@@ -62,6 +63,8 @@ class Casa : public Imovel{
 		void set_sala_jantar(bool sala_jantar);
 		void print(ostream&);
 		friend std::ostream& operator<<(std::ostream&, Casa&);
+		void printAll();
+		void imprime(FILE *, Casa*);
 };
 
 class Apartamento : public Imovel{
@@ -85,6 +88,8 @@ class Apartamento : public Imovel{
 		void set_sacada(bool sacada);
 		void print(ostream& out);
 		friend std::ostream& operator<<(std::ostream&, Apartamento&);
+		void printAll();
+		void imprime(FILE *, Apartamento*);
 };
 
 class Chacara : public Imovel{
@@ -111,6 +116,8 @@ class Chacara : public Imovel{
 		void set_piscina(bool piscina);
 		void print(ostream& out);
 		friend std::ostream& operator<<(std::ostream&, Chacara&);
+		void printAll();
+		void imprime(FILE *, Chacara*);
 };
 
 #endif

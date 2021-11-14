@@ -96,3 +96,19 @@ vector<vector<Imovel*>::iterator> func7(vector<Imovel*> *imoveis, string proprie
 	}
 	*/
 }
+
+void func8(vector<Imovel*> *imoveis, int opcao){
+	
+	FILE *arquivo = fopen("saida.txt", "w");
+
+	for(unsigned int i = 0; i < imoveis->size(); i++){
+		if(opcao == 1){
+			cout << *imoveis->at(i);
+		}
+		else{
+			imoveis->at(i)->imprime(arquivo, imoveis->at(i));
+		}
+	}
+
+	fclose(arquivo);
+}

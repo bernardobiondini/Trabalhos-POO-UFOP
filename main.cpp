@@ -9,7 +9,7 @@ int main(){
 	
 	imoveis = Imovel::ler_dados();
 
-	int funcao, quartos;
+	int funcao, quartos, opcao;
 	float valor;
 	string prop, cidade, tipo;
 	cout << "Digite o numero da funcao desejada: ";
@@ -76,11 +76,11 @@ int main(){
 		break;
 
 		case 7:
+		{
 			vector<vector<Imovel*>::iterator> vetor7;
 			cout << "Digite o nome do proprietario: ";
 			cin.ignore();
 			getline(cin, prop);
-			Imovel propriedade;
 			
 			vetor7 = func7(&imoveis, prop);			
 			if(!vetor7.empty()){
@@ -88,16 +88,23 @@ int main(){
                 for(int i = 0; i < vetor7.size(); i++){
                     cout << **vetor7.at(i) << endl;
             	}
+				vetor7.clear();
+				break;
         	}
-        	else
-        		cout << prop << " nao possui imoveis" << endl;
-
-			vetor7.clear();
+        	else{
+				cout << prop << " nao possui imoveis" << endl;
+				vetor7.clear();
+				break;
+			}
+		}
 		break;
 
-		//case 8:
+		case 8:
+			cout << "Digite 1 para imprimir as prorpiedades no terminal e 2 para criar um arquivo: ";
+			cin >> opcao;
 
-		//break;
+			func8(&imoveis, opcao);
+		break;
 	}
 	return 0;
 }
