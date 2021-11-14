@@ -15,7 +15,7 @@ int main(){
 	cout << "Digite o numero da funcao desejada: ";
 	cin >> funcao;
 	
-	for(int i = 0; i < imoveis.size(); i++){
+	for(unsigned int i = 0; i < imoveis.size(); i++){
 		cout << *imoveis.at(i) << endl;
 	}
 	
@@ -35,7 +35,7 @@ int main(){
 			//for(auto & i : imoveis_retorno){
 			//	cout << *i;
 			//}
-			for(int i = 0; i < imoveis_retorno.size(); i++)
+			for(unsigned int i = 0; i < imoveis_retorno.size(); i++)
 				cout << *imoveis_retorno.at(i);
 			imoveis_retorno.clear();
 		break;
@@ -47,7 +47,7 @@ int main(){
 			//for(auto &i : imoveis_retorno){
 			//	cout << *i;
 			//}
-			for(int i = 0; i < imoveis_retorno.size(); i++)
+			for(unsigned int i = 0; i < imoveis_retorno.size(); i++)
 				cout << *imoveis_retorno.at(i);
 			imoveis_retorno.clear();
 		break;
@@ -61,7 +61,7 @@ int main(){
 			//for(auto &i : imoveis_retorno){
 			//	cout << *i;
 			//}
-			for(int i = 0; i < imoveis_retorno.size(); i++)
+			for(unsigned int i = 0; i < imoveis_retorno.size(); i++)
 				cout << *imoveis_retorno.at(i);
 			imoveis_retorno.clear();
 		break;
@@ -74,13 +74,19 @@ int main(){
 			//for(auto i = imoveis_retorno.rbegin(); i != imoveis_retorno.rend(); ++i){
 			//	cout << **i;
 			//}
-			for(int i = imoveis_retorno.size() - 1; i >= 0; i--)
+			for(unsigned int i = imoveis_retorno.size() - 1; i >= 0; i--)
 				cout << *imoveis_retorno.at(i);
 			imoveis_retorno.clear();
 		break;
 
 		case 7:
-
+			cout << "Digite o nome do proprietario: ";
+			cin.ignore();
+			cin >> prop;
+			imoveis_retorno = func7(&imoveis, prop);
+		 	for(unsigned int i = imoveis_retorno.size() - 1; i >= 0; i--)
+				cout << *imoveis_retorno.at(i);
+			imoveis_retorno.clear();
 		break;
 
 		case 8:

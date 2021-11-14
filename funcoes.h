@@ -13,5 +13,6 @@ vector<Imovel*> func5 (vector<Imovel*>*, string);
 
 vector<Imovel*> func6 (vector<Imovel*>*, string);
 
+vector<Imovel*> func7 (vector<Imovel*>*, string);
 
 #endif

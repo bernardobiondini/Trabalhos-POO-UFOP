@@ -132,13 +132,13 @@ vector<Imovel*> Imovel::cria_vetor(vector<Imovel*> imoveis){
 	string palavra;
 	stringstream ss;
     
-    float fl;
-    int in;
+    // float fl;
+    // int in;
     
     while(getline(gera_dados, palavra)){
         if(palavra == "apartamento") {
 			getline(gera_dados, palavra);			
-			float valor = stof(palavra);
+			float valor = atof(palavra.c_str());
 				
 		    getline(gera_dados, palavra);
 		    string prop = palavra;
@@ -153,25 +153,25 @@ vector<Imovel*> Imovel::cria_vetor(vector<Imovel*> imoveis){
 		    string cidade = palavra;
 
 		    getline(gera_dados, palavra);
-		    int num = stoi(palavra);		    
+		    int num = atoi(palavra.c_str());		    
 		
 		    getline(gera_dados, palavra);
-		    int quartos = stoi(palavra);		    
+		    int quartos = atoi(palavra.c_str());		    
 		
 		    getline(gera_dados, palavra);
-		    int banhei = stoi(palavra);		    
+		    int banhei = atoi(palavra.c_str());		    
             
             getline(gera_dados, palavra);
-            int andar = stoi(palavra);		    
+            int andar = atoi(palavra.c_str());		    
         
             getline(gera_dados, palavra);
-            float taxa_condominio = stof(palavra);		    
+            float taxa_condominio = atof(palavra.c_str());		    
             
             getline(gera_dados, palavra);
-            int elevador = stoi(palavra);		    
+            int elevador = atoi(palavra.c_str());		    
             
             getline(gera_dados, palavra);
-            int sacada = stoi(palavra);		    
+            int sacada = atoi(palavra.c_str());		    
 			
 			imoveis.push_back(new Apartamento(
 				cont++, valor, prop, rua, bairro, cidade, num, quartos, banhei, andar, taxa_condominio, elevador, sacada
@@ -180,7 +180,7 @@ vector<Imovel*> Imovel::cria_vetor(vector<Imovel*> imoveis){
         else if(palavra == "casa") {
             
 			getline(gera_dados, palavra);			
-			float valor = stof(palavra);
+			float valor = atof(palavra.c_str());
 				
 		    getline(gera_dados, palavra);
 		    string prop = palavra;
@@ -195,19 +195,19 @@ vector<Imovel*> Imovel::cria_vetor(vector<Imovel*> imoveis){
 		    string cidade = palavra;
 
 		    getline(gera_dados, palavra);
-		    int num = stoi(palavra);		    
+		    int num = atoi(palavra.c_str());		    
 		
 		    getline(gera_dados, palavra);
-		    int quartos = stoi(palavra);		    
+		    int quartos = atoi(palavra.c_str());		    
 		
 		    getline(gera_dados, palavra);
-		    int banhei = stoi(palavra);		    
+		    int banhei = atoi(palavra.c_str());		    
             
             getline(gera_dados, palavra);
-            int andares = stoi(palavra);		
+            int andares = atoi(palavra.c_str());		
 
             getline(gera_dados, palavra);
-			int sala_jantar = stoi(palavra);
+			int sala_jantar = atoi(palavra.c_str());
 
 			imoveis.push_back(new Casa(
 				cont++, valor, prop, rua, bairro, cidade, num, quartos, banhei, andares, sala_jantar
@@ -216,7 +216,7 @@ vector<Imovel*> Imovel::cria_vetor(vector<Imovel*> imoveis){
         }
         else if(palavra == "chacara") {
 		    getline(gera_dados, palavra);			
-			float valor = stof(palavra);
+			float valor = atof(palavra.c_str());
 				
 		    getline(gera_dados, palavra);
 		    string prop = palavra;
@@ -231,28 +231,28 @@ vector<Imovel*> Imovel::cria_vetor(vector<Imovel*> imoveis){
 		    string cidade = palavra;
 
 		    getline(gera_dados, palavra);
-		    int num = stoi(palavra);		    
+		    int num = atoi(palavra.c_str());		    
 		
 		    getline(gera_dados, palavra);
-		    int quartos = stoi(palavra);		    
+		    int quartos = atoi(palavra.c_str());		    
 		
 		    getline(gera_dados, palavra);
-		    int banhei = stoi(palavra);	
+		    int banhei = atoi(palavra.c_str());	
             
             getline(gera_dados, palavra);
-            int salao_festa = stoi(palavra);
+            int salao_festa = atoi(palavra.c_str());
             
             getline(gera_dados, palavra);
-            int salao_jogos = stoi(palavra);
+            int salao_jogos = atoi(palavra.c_str());
             
             getline(gera_dados, palavra);
-            int campo_fut = stoi(palavra);
+            int campo_fut = atoi(palavra.c_str());
             
             getline(gera_dados, palavra);
-            int churras = stoi(palavra);
+            int churras = atoi(palavra.c_str());
             
             getline(gera_dados, palavra);
-            int piscina = stoi(palavra);
+            int piscina = atoi(palavra.c_str());
 
 			imoveis.push_back(new Chacara(
 				cont++, valor, prop, rua, bairro, cidade, num, quartos, banhei, salao_festa, salao_jogos, 
