@@ -1,12 +1,12 @@
 #include "classes.h"
 using namespace std;
 
-bool func2(vector<Imovel*> imoveis, string propietario){
+bool func2(vector<Imovel*> imoveis, string proprietario){
 	//for (auto i : imoveis){
 	//	if(i->get_prop() == propietario) return true;
 	//}
 	for(unsigned int i = 0; i < imoveis.size(); i++){
-		if(imoveis.at(i)->get_prop() == propietario) 
+		if(imoveis.at(i)->get_prop() == proprietario) 
 			return true;
 	}
 	return false;	
@@ -69,6 +69,30 @@ vector<Imovel*> func6(vector<Imovel*> *imoveis, string cidade){
 	return propriedades;
 }
 
-vector<Imovel*> func7(vector<Imovel*> *imoveis, string proprietario){
-	
+vector<vector<Imovel*>::iterator> func7(vector<Imovel*> *imoveis, string proprietario){
+	vector<vector<Imovel*>::iterator> colecao_iterador;
+    Imovel *imovel;
+
+	vector<Imovel*>::iterator it;
+    for(it = imoveis->begin(); it != imoveis->end(); ++it) {
+        imovel = *it;
+
+        if(imovel->get_prop() == proprietario){
+            colecao_iterador.push_back(it);
+        }
+    }
+
+    return colecao_iterador;
+
+    /*
+    vector<Imovel*> 
+	Imovel *imovel;
+	vector<Imovel*>::iterator it;
+    for(it = imoveis->begin(); it != imoveis->end(); it++) {
+        imovel = *it;
+
+        if(imovel->get_prop() == proprietario)
+        	
+	}
+	*/
 }

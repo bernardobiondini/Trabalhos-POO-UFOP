@@ -15,15 +15,11 @@ int main(){
 	cout << "Digite o numero da funcao desejada: ";
 	cin >> funcao;
 	
-	for(unsigned int i = 0; i < imoveis.size(); i++){
-		cout << *imoveis.at(i) << endl;
-	}
-	
 	switch(funcao){
 		case 2:
 			cout << "Digite o nome desejado: ";
 			cin.ignore();
-			getline( cin, prop);
+			getline(cin, prop);
 			if(func2(imoveis, prop)) cout << prop << " Eh proprietario\n";
 			else cout << prop << " Nao eh proprietario\n";
 		break;
@@ -80,18 +76,28 @@ int main(){
 		break;
 
 		case 7:
+			vector<vector<Imovel*>::iterator> vetor7;
 			cout << "Digite o nome do proprietario: ";
 			cin.ignore();
-			cin >> prop;
-			imoveis_retorno = func7(&imoveis, prop);
-		 	for(unsigned int i = imoveis_retorno.size() - 1; i >= 0; i--)
-				cout << *imoveis_retorno.at(i);
-			imoveis_retorno.clear();
+			getline(cin, prop);
+			Imovel propriedade;
+			
+			vetor7 = func7(&imoveis, prop);			
+			if(!vetor7.empty()){
+		 		cout << "Os imoveis de " << prop << " sao:" << endl;
+                for(int i = 0; i < vetor7.size(); i++){
+                    cout << **vetor7.at(i) << endl;
+            	}
+        	}
+        	else
+        		cout << prop << " nao possui imoveis" << endl;
+
+			vetor7.clear();
 		break;
 
-		case 8:
+		//case 8:
 
-		break;
+		//break;
 	}
 	return 0;
 }

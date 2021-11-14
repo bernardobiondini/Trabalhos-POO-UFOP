@@ -86,8 +86,8 @@ void Imovel::set_banhei(int banhei){
 
 void Imovel::print(ostream& out){
 	out << "\n-----------------------------------------------------------------"
-	<< "\nProprietário: "<< this->prop
-	<< "\n\t Preço: " << this->valor
+	<< "\nProprietario: "<< this->prop
+	<< "\n\t Preco: " << this->valor
  	<< "\n\t Quartos: " << this->quartos
  	<< "\n\t Rua: " << this->rua
  	<< "\n\t Bairro: " << this->bairro
