@@ -1,0 +1,276 @@
+Kurt Turnbull
+	 270000.00
+	 2
+	 The Lawns
+	 West Cardoon
+	 Mobile
+Tyrell Tang
+	 315000.00
+	 3
+	 Back Road
+	 King Point
+	 Thompson
+Niyah Lewis
+	 550000.00
+	 4
+	 Blenheim Close
+	 Larch Gardens
+	 Orford
+Libbie Reilly
+	 280000.00
+	 2
+	 Rose Street
+	 Prospect Place
+	 Hoquiam
+Szymon Gallegos
+	 800000.00
+	 5
+	 Seymour Road
+	 Saddle Forest
+	 Saint Boniface
+Lila Ellison
+	 195000.00
+	 2
+	 Orchard Way
+	 Ripple Point
+	 Chulmleigh
+Tomi French
+	 160000.00
+	 1
+	 Waverley Road
+	 Fort Nutmeg
+	 Newton-le-Willows
+Amani Riley
+	 300000.00
+	 2
+	 Broadway
+	 Teal Square
+	 Penrith
+Menaal Keeling
+	 600000.00
+	 3
+	 Laburnum Grove
+	 Mount Woodruff
+	 Higham Ferrers
+Darragh Benton
+	 180000.00
+	 1
+	 Bridge Street
+	 Annatto City
+	 Staunton
+Damien Boyce
+	 900000.00
+	 3
+	 Elm Close
+	 Sallow Plains
+	 Great Dunmow
+Nina Hunter
+	 500000.00
+	 2
+	 Parsonage Lane
+	 Maroon Hook
+	 Cherokee
+Simone Ashley
+	 255000.00
+	 2
+	 Wisdom
+	 Parsonage Lane
+	 Penrith
+Millie-Mae Carr
+	 265000.00
+	 2
+	 Mary Street
+	 Myers Falls
+	 Eastchester
+Lila Ellison
+	 236000.00
+	 3
+	 Back Road
+	 Saddle Forest
+	 Orford
+Kendall Muir
+	 200000.00
+	 1
+	 Kings Road
+	 Amethyst Point
+	 Shiprock
+Georgina Hendrix
+	 290000.00
+	 2
+	 Woodhouse Lane
+	 Queen Bay
+	 Busselton
+Simone Ashley
+	 770000.00
+	 4
+	 Windmill Lane
+	 Teal Wharf
+	 Uckfield
+Simone Ashley
+	 455000.00
+	 3
+	 Winterfield
+	 Aston
+	 Eastchester
+Amani Riley
+	 100000.00
+	 2
+	 Back Road
+	 Saddle Forest
+	 Saint Boniface
+Amani Riley
+	 670000.00
+	 4
+	 Seymour Road
+	 West Cardoon
+	 Great Dunmow
+Lila Ellison
+	 275000.00
+	 2
+	 Stark Road
+	 Ripple Park
+	 Hoquiam
+Lila Ellison
+	 170000.00
+	 2
+	 Fisher Square
+	 Hansa Plaza
+	 Staunton
+Georgina Hendrix
+	 332000.00
+	 4
+	 Hoffman Road
+	 West Cardoon
+	 Staunton
+Darragh Benton
+	 355000.00
+	 2
+	 Denton
+	 Eastchester
+	 97
+Tomi French
+	 615000.00
+	 3
+	 Norton
+	 Lower Byzantine
+	 Chulmleigh
+Tomi French
+	 421000.00
+	 4
+	 Seymour Road
+	 West Cardoon
+	 Great Dunmow
+Simone Ashley
+	 295000.00
+	 2
+	 Amazon
+	 Cobalt Walk
+	 Mobile
+Nina Hunter
+	 333000.00
+	 2
+	 Sailor Field
+	 Lower Byzantine
+	 Busselton
+Nina Hunter
+	 743000.00
+	 4
+	 Square Park
+	 West Cardoon
+	 Great Dunmow
+Libbie Reilly
+	 223000.00
+	 3
+	 Turton
+	 Aston
+	 Uckfield
+Szymon Gallegos
+	 245000.00
+	 3
+	 Faith
+	 Aston
+	 Chulmleigh
+Darragh Bentong
+	 333000.00
+	 3
+	 Blue Lake
+	 Snow Neck
+	 Hoquiam
+Libbie Reilly
+	 628000.00
+	 4
+	 Seymour Road
+	 West Cardoon
+	 Busselton
+Nina Hunter
+	 272000.00
+	 2
+	 Seymour Road
+	 Fiddlehead City
+	 Busselton
+Amani Riley
+	 329000.00
+	 4
+	 Seymour Road
+	 West Cardoon
+	 Great Dunmow
+Nina Hunter
+	 666000.00
+	 5
+	 Heathan Forest
+	 Mount Woodruff
+	 Higham Ferrers
+Simone Ashley
+	 655000.00
+	 3
+	 West road
+	 Aston
+	 Newton-le-Willows
+Georgina Hendrix
+	 455000.00
+	 4
+	 Winterfield
+	 Aston
+	 Orford
+Kurt Turnbull
+	 1000000.00
+	 6
+	 Groove Park
+	 Fawn Neck
+	 Higham Ferrers
+Libbie Reilly
+	 462000.00
+	 4
+	 Tatton Road
+	 Amber Plaza
+	 Great Dunmow
+Menaal Keeling
+	 916000.00
+	 3
+	 Laburnum Grove
+	 Mount Woodruff
+	 Higham Ferrers
+Niyah Lewis
+	 743000.00
+	 4
+	 Laburnum Grove
+	 Mount Cornflower
+	 Higham Ferrers
+Niyah Lewis
+	 888000.00
+	 4
+	 Seymour Road
+	 Indigo Village
+	 Newton-le-Willows
+Kurt Turnbull
+	 1555000.00
+	 6
+	 Winterfield
+	 Upper Sunrise
+	 Orford
+Simone Ashley
+	 255000.00
+	 3
+	 Winland
+	 Sun Knigth
+	 Orford

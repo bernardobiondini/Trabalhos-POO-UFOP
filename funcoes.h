@@ -15,4 +15,6 @@ vector<Imovel*> func6 (vector<Imovel*>*, string);
 
 vector<vector<Imovel*>::iterator> func7 (vector<Imovel*>*, string);
 
+void func8(vector<Imovel*> *, int);
+
 #endif

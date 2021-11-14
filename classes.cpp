@@ -264,6 +264,15 @@ vector<Imovel*> Imovel::cria_vetor(vector<Imovel*> imoveis){
     return imoveis;
 }
 
+void Imovel::imprime(FILE *arquivo, Imovel *imovel){
+	fprintf(arquivo, "%s\n", imovel->get_prop().c_str());
+	fprintf(arquivo, "\t %.2f\n", imovel->get_valor());
+	fprintf(arquivo, "\t %d\n", imovel->get_quartos());
+	fprintf(arquivo, "\t %s\n", imovel->get_rua().c_str());
+	fprintf(arquivo, "\t %s\n", imovel->get_bairro().c_str());
+	fprintf(arquivo, "\t %s\n", imovel->get_cidade().c_str());
+}
+
 /////////////////////////////  METODOS CASA ///////////////////////////////////////
 
 Casa::Casa(const int id, const float valor, const string prop, const string rua, const string bairro, 
@@ -300,6 +309,11 @@ std::ostream& operator<<(std::ostream& out, Casa& c){
 	return out;
 }
 
+void Casa::imprime(FILE *arquivo, Casa *imovel){
+	Imovel *ptr = imovel;
+	Imovel::imprime(arquivo, ptr);
+	fprintf(arquivo, "\t lala%d\n", imovel->get_andares());
+}
 
 ///////////////////////////  METODOS APARTAMENTO //////////////////////////////////
 Apartamento::Apartamento(const int id, const float valor, const string prop, const string rua, const string bairro, 
@@ -354,6 +368,12 @@ std::ostream& operator<<(std::ostream& out, Apartamento& a){
 	a.print(out);
 
 	return out;
+}
+
+void Apartamento::imprime(FILE *arquivo, Apartamento *imovel){
+	Imovel *ptr = imovel;
+	Imovel::imprime(arquivo, ptr);
+	fprintf(arquivo, "\t lalala%d\n", imovel->get_elev());
 }
 
 
@@ -419,4 +439,11 @@ std::ostream& operator<<(std::ostream& out, Chacara& c){
 	c.print(out);
 
 	return out;
+}
+
+void Chacara::imprime(FILE *arquivo, Chacara *imovel){
+	Imovel *ptr = imovel;
+	Imovel::imprime(arquivo, ptr);
+	fprintf(arquivo, "lalalalalala");
+	fprintf(arquivo, "\t %d\n", imovel->get_piscina());
 }
