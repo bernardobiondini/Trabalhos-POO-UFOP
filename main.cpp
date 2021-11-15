@@ -1,3 +1,11 @@
+/*
+	TRABALHO PRÁTICO DE PROGRAMAÇÃO ORIENTADA A OBJETOS
+	---------------------------------------------------
+	ARTHUR SILVA LIMA - 20.1.4019
+	BERNARDO BIONDINI CAVANELLAS - 20.1.4112
+	LEANDRO LIBÉRIO MACHADO DA SILVA - 19.2.4074
+*/
+
 #include "classes.h"
 #include "funcoes.h"
 

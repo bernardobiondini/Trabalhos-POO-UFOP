@@ -56,6 +56,7 @@ vector<Imovel*> func5(vector<Imovel*> *imoveis, string tipo){
 		else if ((typeid(imoveis->at(i)) == typeid(Apartamento)) && (tipo == "apartamento")) imoveis_tipo.push_back(imoveis->at(i));
 		else if ((typeid(imoveis->at(i)) == typeid(Chacara)) && (tipo == "chacara")) imoveis_tipo.push_back(imoveis->at(i));
 	}
+	cout << *imoveis_tipo.at(0);
 
 	return imoveis_tipo;
 }
