@@ -264,13 +264,13 @@ vector<Imovel*> Imovel::cria_vetor(vector<Imovel*> imoveis){
     return imoveis;
 }
 
-void Imovel::imprime(FILE *arquivo, Imovel *imovel){
-	fprintf(arquivo, "%s\n", imovel->get_prop().c_str());
-	fprintf(arquivo, "\t %.2f\n", imovel->get_valor());
-	fprintf(arquivo, "\t %d\n", imovel->get_quartos());
-	fprintf(arquivo, "\t %s\n", imovel->get_rua().c_str());
-	fprintf(arquivo, "\t %s\n", imovel->get_bairro().c_str());
-	fprintf(arquivo, "\t %s\n", imovel->get_cidade().c_str());
+void Imovel::imprime(FILE *arquivo, Imovel &imovel){
+	fprintf(arquivo, "%s\n", imovel.get_prop().c_str());
+	fprintf(arquivo, "\t%.2f\n", imovel.get_valor());
+	fprintf(arquivo, "\t%d\n", imovel.get_quartos());
+	fprintf(arquivo, "\t%s\n", imovel.get_rua().c_str());
+	fprintf(arquivo, "\t%s\n", imovel.get_bairro().c_str());
+	fprintf(arquivo, "\t%s\n", imovel.get_cidade().c_str());
 }
 
 /////////////////////////////  METODOS CASA ///////////////////////////////////////
@@ -299,7 +299,6 @@ void Casa::set_sala_jantar(bool sala_jantar){
 void Casa::print(ostream& out){
 	Imovel::print(out);
 	out << "\n\t Andares: " << this->get_andares()
-	<< "\n\t " << (this->get_sala_jantar() ? "Possui sala de jantar" : "Sem sala de jantar")
 	<< endl;
 }
 
@@ -309,10 +308,17 @@ std::ostream& operator<<(std::ostream& out, Casa& c){
 	return out;
 }
 
-void Casa::imprime(FILE *arquivo, Casa *imovel){
-	Imovel *ptr = imovel;
+void Casa::printAll(){
+	cout << "\n\t Andares: " << this->get_andares()
+	<< "\n\t " << (this->get_sala_jantar() ? "Possui sala de jantar" : "Sem sala de jantar")
+	<< endl;
+}
+
+void Casa::imprime(FILE *arquivo, Casa &imovel){
+	Imovel ptr = imovel;
 	Imovel::imprime(arquivo, ptr);
-	fprintf(arquivo, "\t lala%d\n", imovel->get_andares());
+	fprintf(arquivo, "lalalalalala");
+	fprintf(arquivo, "\t%d\n", imovel.get_andares());
 }
 
 ///////////////////////////  METODOS APARTAMENTO //////////////////////////////////
@@ -356,10 +362,7 @@ void Apartamento::set_sacada(bool sacada){
 
 void Apartamento::print(ostream& out){
 	Imovel::print(out);
-	out << "\n\t Andar: " << this->get_andar()
-	<< "\n\t Taxa de condominio: " << this->get_taxa_condo()
-	<< "\n\t " << (this->get_elev() ? "Possui elevador" : "Sem elevador")
-	<< "\n\t " << (this->get_sacada() ? "Possui sacada" : "Sem sacada")
+	out	<< "\n\t " << (this->get_elev() ? "Possui elevador" : "Sem elevador")
 	<< endl;
 
 }
@@ -370,10 +373,19 @@ std::ostream& operator<<(std::ostream& out, Apartamento& a){
 	return out;
 }
 
-void Apartamento::imprime(FILE *arquivo, Apartamento *imovel){
-	Imovel *ptr = imovel;
+void Apartamento::printAll(){
+	cout << "\n\t Andar: " << this->get_andar()
+	<< "\n\t Taxa de condominio: " << this->get_taxa_condo()
+	<< "\n\t " << (this->get_elev() ? "Possui elevador" : "Sem elevador")
+	<< "\n\t " << (this->get_sacada() ? "Possui sacada" : "Sem sacada")
+	<< endl;
+}
+
+void Apartamento::imprime(FILE *arquivo, Apartamento &imovel){
+	Imovel ptr = imovel;
 	Imovel::imprime(arquivo, ptr);
-	fprintf(arquivo, "\t lalala%d\n", imovel->get_elev());
+	fprintf(arquivo, "lalalalalala");
+	fprintf(arquivo, "\t%d\n", imovel.get_elev());
 }
 
 
@@ -427,11 +439,7 @@ void Chacara::set_piscina(bool piscina){
 
 void Chacara::print(ostream& out){
 	Imovel::print(out);
-	out << "\n\t " << (this->get_salao_festa() ? "Possui salão de festa" : "Sem salão de festa")
-	<< "\n\t " << (this->get_salao_jogos() ? "Possui salão de jogos" : "Sem salão de jogos")
-	<< "\n\t " << (this->get_campo_fut() ? "Possui campo de futebol" : "Sem campo de futebol")
-	<< "\n\t " << (this->get_churras() ? "Possui churrasqueira" : "Sem churrasqueira")
-	<< "\n\t " << (this->get_piscina() ? "Possui piscina" : "Sem piscina")
+	out << "\n\t " << (this->get_piscina() ? "Possui piscina" : "Sem piscina")
 	<< endl;
 }
 
@@ -441,9 +449,18 @@ std::ostream& operator<<(std::ostream& out, Chacara& c){
 	return out;
 }
 
-void Chacara::imprime(FILE *arquivo, Chacara *imovel){
-	Imovel *ptr = imovel;
+void Chacara::printAll(){
+	cout << "\n\t " << (this->get_salao_festa() ? "Possui salão de festa" : "Sem salão de festa")
+	<< "\n\t " << (this->get_salao_jogos() ? "Possui salão de jogos" : "Sem salão de jogos")
+	<< "\n\t " << (this->get_campo_fut() ? "Possui campo de futebol" : "Sem campo de futebol")
+	<< "\n\t " << (this->get_churras() ? "Possui churrasqueira" : "Sem churrasqueira")
+	<< "\n\t " << (this->get_piscina() ? "Possui piscina" : "Sem piscina")
+	<< endl;
+}
+
+void Chacara::imprime(FILE *arquivo, Chacara &imovel){
+	Imovel ptr = imovel;
 	Imovel::imprime(arquivo, ptr);
 	fprintf(arquivo, "lalalalalala");
-	fprintf(arquivo, "\t %d\n", imovel->get_piscina());
+	fprintf(arquivo, "\t%d\n", imovel.get_piscina());
 }

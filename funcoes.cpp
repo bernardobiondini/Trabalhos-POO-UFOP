@@ -106,7 +106,7 @@ void func8(vector<Imovel*> *imoveis, int opcao){
 			cout << *imoveis->at(i);
 		}
 		else{
-			imoveis->at(i)->imprime(arquivo, imoveis->at(i));
+			imoveis->at(i)->imprime(arquivo, *imoveis->at(i));
 		}
 	}
 
