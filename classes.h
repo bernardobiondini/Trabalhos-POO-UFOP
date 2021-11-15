@@ -61,7 +61,7 @@ class Casa : public Imovel{
 		void set_andares(int andares);
 		bool get_sala_jantar();
 		void set_sala_jantar(bool sala_jantar);
-		virtual void print(ostream&);
+		void print(ostream&);
 		friend std::ostream& operator<<(std::ostream&, Casa&);
 		void printAll();
 		void imprime(FILE *, Casa&);
@@ -86,7 +86,7 @@ class Apartamento : public Imovel{
 		void set_elev(bool elev);
 		bool get_sacada();
 		void set_sacada(bool sacada);
-		virtual void print(ostream& out);
+		void print(ostream& out);
 		friend std::ostream& operator<<(std::ostream&, Apartamento&);
 		void printAll();
 		void imprime(FILE *, Apartamento&);
@@ -114,7 +114,7 @@ class Chacara : public Imovel{
 		void set_churras(bool churras);
 		bool get_piscina();
 		void set_piscina(bool piscina);
-		virtual void print(ostream& out);
+		void print(ostream& out);
 		friend std::ostream& operator<<(std::ostream&, Chacara&);
 		void printAll();
 		void imprime(FILE *, Chacara&);
