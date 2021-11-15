@@ -109,7 +109,7 @@ int main(){
 		}
 		break;
 
-		case 8:
+		case 8://listagem dos imoveis conforme solicitado no enunciado 8
 			cout << "Digite 1 para imprimir as prorpiedades no terminal e 2 para criar um arquivo: ";
 			cin >> opcao;
 
