@@ -52,12 +52,11 @@ vector<Imovel*> func5(vector<Imovel*> *imoveis, string tipo){
 	//	else if ((typeid(*i) == typeid(Chacara)) && (tipo == "chacara")) imoveis_tipo.push_back(i);
 	//}
 	for(unsigned int i = 0; i < imoveis->size(); i++){
-		if ((typeid(imoveis->at(i)) == typeid(Casa)) && (tipo == "casa")) imoveis_tipo.push_back(imoveis->at(i));
-		else if ((typeid(imoveis->at(i)) == typeid(Apartamento)) && (tipo == "apartamento")) imoveis_tipo.push_back(imoveis->at(i));
-		else if ((typeid(imoveis->at(i)) == typeid(Chacara)) && (tipo == "chacara")) imoveis_tipo.push_back(imoveis->at(i));
+		if ((typeid(*imoveis->at(i)) == typeid(Casa)) && (tipo == "casa")) imoveis_tipo.push_back(imoveis->at(i));
+		else if ((typeid(*imoveis->at(i)) == typeid(Apartamento)) && (tipo == "apartamento")) imoveis_tipo.push_back(imoveis->at(i));
+		else if ((typeid(*imoveis->at(i)) == typeid(Chacara)) && (tipo == "chacara")) imoveis_tipo.push_back(imoveis->at(i));
 	}
-	cout << *imoveis_tipo.at(0);
-
+	
 	return imoveis_tipo;
 }
 
