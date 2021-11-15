@@ -1,6 +1,7 @@
 #include "classes.h"
 using namespace std;
 
+//funcao para verificar se o proprietario possui imoveis
 bool func2(vector<Imovel*> imoveis, string proprietario){
 	//for (auto i : imoveis){
 	//	if(i->get_prop() == propietario) return true;
@@ -12,6 +13,7 @@ bool func2(vector<Imovel*> imoveis, string proprietario){
 	return false;	
 }
 
+//funcao para filtrar os imoveis de valor igual ou abaixo do inserido
 vector<Imovel*> func3(vector<Imovel*> *imoveis, float valor){
 	vector<Imovel*> propriedades;
 	
@@ -26,6 +28,7 @@ vector<Imovel*> func3(vector<Imovel*> *imoveis, float valor){
 	return propriedades;
 }
 
+//funcao para filtrar os imoveis com numero de quartos igual ou superior ao inserido
 vector<Imovel*> func4(vector<Imovel*> *imoveis, int quartos){
 	vector<Imovel*> propriedades;
 	//for (auto & i : *imoveis){
@@ -39,6 +42,7 @@ vector<Imovel*> func4(vector<Imovel*> *imoveis, int quartos){
 	return propriedades;
 }
 
+//funcao que filtra os imoveis de acordo com o tipo inserido
 vector<Imovel*> func5(vector<Imovel*> *imoveis, string tipo){
 	vector<Imovel*> imoveis_tipo;
 
@@ -56,6 +60,7 @@ vector<Imovel*> func5(vector<Imovel*> *imoveis, string tipo){
 	return imoveis_tipo;
 }
 
+//funcao para filtrar os imoveis da cidade inserida
 vector<Imovel*> func6(vector<Imovel*> *imoveis, string cidade){
 	vector<Imovel*> propriedades;
 
@@ -69,9 +74,10 @@ vector<Imovel*> func6(vector<Imovel*> *imoveis, string cidade){
 	return propriedades;
 }
 
+//funcao que filtra os imoveis do proprietario inserido
 vector<vector<Imovel*>::iterator> func7(vector<Imovel*> *imoveis, string proprietario){
 	vector<vector<Imovel*>::iterator> colecao_iterador;
-    Imovel *imovel;
+  Imovel *imovel;
 
 	vector<Imovel*>::iterator it;
     for(it = imoveis->begin(); it != imoveis->end(); ++it) {
@@ -86,17 +92,16 @@ vector<vector<Imovel*>::iterator> func7(vector<Imovel*> *imoveis, string proprie
 
     /*
     vector<Imovel*> 
-	Imovel *imovel;
-	vector<Imovel*>::iterator it;
+		Imovel *imovel;
+		vector<Imovel*>::iterator it;
     for(it = imoveis->begin(); it != imoveis->end(); it++) {
-        imovel = *it;
-
-        if(imovel->get_prop() == proprietario)
-        	
-	}
+      imovel = *it;
+      if(imovel->get_prop() == proprietario)    	
+		}
 	*/
 }
 
+//funcao que cria um arquivo(opcao 2) ou lista os imoveis(opcao 1)
 void func8(vector<Imovel*> *imoveis, int opcao){
 	
 	FILE *arquivo = fopen("saida.txt", "w");
@@ -109,6 +114,5 @@ void func8(vector<Imovel*> *imoveis, int opcao){
 			imoveis->at(i)->imprime(arquivo, *imoveis->at(i));
 		}
 	}
-
 	fclose(arquivo);
 }
