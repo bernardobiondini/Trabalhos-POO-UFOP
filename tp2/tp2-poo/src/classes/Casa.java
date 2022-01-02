@@ -4,18 +4,13 @@ public class Casa extends Imovel{
 	private int andares;
 	private int sala_jantar;
 		
-	public Casa() {
-		set_id(0);
-		set_valor(0);
-		set_prop("-");
-		set_rua("-");
-		set_bairro("-");
-		set_cidade("-");
-		set_num(0);
-		set_quartos(0);
-		set_banhei(0);
-		set_andares(0);
-		set_sala_jantar(0);
+	public Casa(int id, float valor, String prop, String rua, String bairro, 
+                    String cidade, int num, int quartos, int banhei, int andares, 
+                    int sala_jantar) {
+                
+        super(id, valor, prop, rua, bairro, cidade, num, quartos, banhei);
+        set_andares(andares);
+		set_sala_jantar(sala_jantar);
 	}
 
     Casa(int i, float valor, String prop, String rua, String bairro, String cidade, int num, int quartos, int banhei, int andares, int sala_jantar) {

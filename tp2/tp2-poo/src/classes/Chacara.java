@@ -7,21 +7,17 @@ public class Chacara extends Imovel{
 	private int churras;
 	private int piscina;
 	
-	public Chacara() {
-		set_id(0);
-		set_valor(0);
-		set_prop("-");
-		set_rua("-");
-		set_bairro("-");
-		set_cidade("-");
-		set_num(0);
-		set_quartos(0);
-		set_banhei(0);
-		set_salao_festa(0);
-		set_salao_jogos(0);
-		set_campo_fut(0);
-		set_churras(0);
-		set_piscina(0);
+	public Chacara (int id, float valor, String prop, String rua, String bairro, 
+                        String cidade, int num, int quartos, int banhei, int salao_festa, 
+                        int salao_jogos, int campo_fut, int churras, int piscina) {
+            
+        
+		super(id, valor, prop, rua, bairro, cidade, num, quartos, banhei);
+        set_salao_festa(salao_festa);
+		set_salao_jogos(salao_jogos);
+		set_campo_fut(campo_fut);
+		set_churras(churras);
+		set_piscina(piscina);
 	}
 
     Chacara(int i, float valor, String prop, String rua, String bairro, String cidade, int num, int quartos, int banhei, int salao_festa, int salao_jogos, int campo_fut, int churras, int piscina) {

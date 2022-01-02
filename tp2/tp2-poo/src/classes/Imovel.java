@@ -19,16 +19,17 @@ public class Imovel {
 	private int quartos;
 	private int banhei;
 	
-	public Imovel() {
-		set_id(0);
-		set_valor(0);
-		set_prop("-");
-		set_rua("-");
-		set_bairro("-");
-		set_cidade("-");
-		set_num(0);
-		set_quartos(0);
-		set_banhei(0);
+	public Imovel(int id, float valor, String prop, String rua, String bairro,
+            	  String cidade, int num, int quartos, int banhei) {
+		set_id(id);
+		set_valor(valor);
+		set_prop(prop);
+		set_rua(rua);
+		set_bairro(bairro);
+		set_cidade(cidade);
+		set_num(num);
+		set_quartos(quartos);
+		set_banhei(banhei);
 	}
 	
 	public int get_id(){

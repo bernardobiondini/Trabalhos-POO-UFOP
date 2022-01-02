@@ -6,20 +6,15 @@ public class Apartamento extends Imovel{
 	private int elev;
 	private int sacada;
 	
-	public Apartamento() {
-		set_id(0);
-		set_valor(0);
-		set_prop("-");
-		set_rua("-");
-		set_bairro("-");
-		set_cidade("-");
-		set_num(0);
-		set_quartos(0);
-		set_banhei(0);
-		set_andar(0);
-		set_taxa_condo(0);
-		set_elev(0);
-		set_sacada(0);
+	public Apartamento (int id, float valor, String prop, String rua, String bairro, 
+                            String cidade, int num, int quartos, int banhei, int andar,
+                            float taxa_condo, int elev, int sacada) {
+		
+    	super(id, valor, prop, rua, bairro, cidade, num, quartos, banhei);
+		set_andar(andar);
+		set_taxa_condo(taxa_condo);
+		set_elev(elev);
+		set_sacada(sacada);
 	}
 
     Apartamento(int i, float valor, String prop, String rua, String bairro, String cidade, int num, int quartos, int banhei, int andar, float taxa_condominio, int elevador, int sacada) {
