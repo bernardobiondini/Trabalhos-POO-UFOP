@@ -21,6 +21,10 @@ public class Apartamento extends Imovel{
 		set_elev(0);
 		set_sacada(0);
 	}
+
+    Apartamento(int i, float valor, String prop, String rua, String bairro, String cidade, int num, int quartos, int banhei, int andar, float taxa_condominio, int elevador, int sacada) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 	
 	public int get_andar()
 	{

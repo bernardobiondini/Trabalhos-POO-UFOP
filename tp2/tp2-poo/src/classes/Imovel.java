@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Imovel {
@@ -150,7 +151,7 @@ public class Imovel {
 		return cria_vetor(imoveis);
 	}
 	
-	public ArrayList<Imovel> cria_vetor(ArrayList<Imovel> imoveis){
+	public ArrayList<Imovel> cria_vetor(ArrayList<Imovel> imoveis) throws IOException{
 		FileInputStream arquivo = new FileInputStream("dados.txt");
 		InputStreamReader input = new InputStreamReader(arquivo); 
 		BufferedReader br = new BufferedReader(input); 

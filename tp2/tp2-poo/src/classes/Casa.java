@@ -17,6 +17,10 @@ public class Casa extends Imovel{
 		set_andares(0);
 		set_sala_jantar(0);
 	}
+
+    Casa(int i, float valor, String prop, String rua, String bairro, String cidade, int num, int quartos, int banhei, int andares, int sala_jantar) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 	
 	public int get_andares() {
 		return andares;
