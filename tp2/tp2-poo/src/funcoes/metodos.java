@@ -3,12 +3,15 @@ package funcoes;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.List;
 import classes.*;
+import java.util.ArrayList;
 
-public class metodos {
+public class Metodos {
 
-	int func2(ArrayList<Imovel> imoveis, String proprietario){
+        public static List<Imovel> propriedades;
+        
+	public int func2(List<Imovel> imoveis, String proprietario){
 
 		for(int i = 0; i < imoveis.size(); i++){
 			if(imoveis.get(i).get_prop() == proprietario) 
@@ -17,8 +20,8 @@ public class metodos {
 		return 0;	
 	}
 	
-	ArrayList<Imovel> func3(ArrayList<Imovel> imoveis, float valor){
-		ArrayList<Imovel>propriedades = new ArrayList<Imovel>();
+	public List<Imovel> func3(List<Imovel> imoveis, float valor){
+		List<Imovel> propriedades = new ArrayList<>();
 		
 		for(int i = 0; i < imoveis.size(); i++){
 			if(imoveis.get(i).get_valor() <= valor) 
@@ -29,8 +32,8 @@ public class metodos {
 	}
 	
 	//funcao para filtrar os imoveis com numero de quartos igual ou superior ao inserido
-	ArrayList<Imovel> func4(ArrayList<Imovel> imoveis, int quartos){
-		ArrayList<Imovel> propriedades = new ArrayList<Imovel>();
+	public List<Imovel> func4(List<Imovel> imoveis, int quartos){
+		propriedades = new ArrayList<>();
 
 		for(int i = 0; i < imoveis.size(); i++){
 			if(imoveis.get(i).get_quartos() >= quartos) 
@@ -41,8 +44,8 @@ public class metodos {
 	}
 	
 	//funcao que filtra os imoveis de acordo com o tipo inserido
-	ArrayList<Imovel> func5(ArrayList<Imovel> imoveis, String tipo){
-		ArrayList<Imovel> imoveis_tipo = new ArrayList<Imovel>();
+	public List<Imovel> func5(List<Imovel> imoveis, String tipo){
+		List<Imovel> imoveis_tipo = new ArrayList<>();
 		Apartamento aux_ap = new Apartamento();
 		Casa aux_casa = new Casa();
 		Chacara aux_chac = new Chacara();
@@ -56,8 +59,8 @@ public class metodos {
 		return imoveis_tipo;
 	}
 	
-	ArrayList<Imovel> func6(ArrayList<Imovel> imoveis, String cidade){
-		ArrayList<Imovel> propriedades = new ArrayList<Imovel>();
+	public List<Imovel> func6(List<Imovel> imoveis, String cidade){
+		List<Imovel> propriedades = new ArrayList<>();
 
 		for(int i = 0; i < imoveis.size(); i++){
 			if(imoveis.get(i).get_cidade() == cidade) propriedades.add(imoveis.get(i));
@@ -86,7 +89,7 @@ public class metodos {
 	*/
 	
 	//funcao que cria um arquivo(opcao 2) ou lista os imoveis(opcao 1)
-	public void func8(ArrayList<Imovel> imoveis, int opcao) throws IOException{
+	public void func8(List<Imovel> imoveis, int opcao) throws IOException{
 		FileOutputStream arquivo = new FileOutputStream("saida.txt");
 		PrintWriter pr = new PrintWriter(arquivo);
 		

@@ -116,7 +116,7 @@ public class Imovel {
 		System.out.printf("\n\t Cidade: " + this.cidade);
 	}
 	
-	public ArrayList<Imovel> ler_dados() {
+	public ArrayList<Imovel> ler_dados() throws IOException {
 		try {
 			String linha;
 			
