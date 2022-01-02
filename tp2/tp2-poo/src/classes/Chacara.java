@@ -20,9 +20,7 @@ public class Chacara extends Imovel{
 		set_piscina(piscina);
 	}
 
-    Chacara(int i, float valor, String prop, String rua, String bairro, String cidade, int num, int quartos, int banhei, int salao_festa, int salao_jogos, int campo_fut, int churras, int piscina) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public Chacara(){}
 	
 	public int get_salao_festa()
 	{

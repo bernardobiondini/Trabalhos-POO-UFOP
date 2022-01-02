@@ -31,6 +31,8 @@ public class Imovel {
 		set_quartos(quartos);
 		set_banhei(banhei);
 	}
+
+	public Imovel(){}
 	
 	public int get_id(){
 		return id;
