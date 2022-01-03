@@ -3,11 +3,14 @@
 	---------------------------------------------------
 	ARTHUR SILVA LIMA - 20.1.4019
 	BERNARDO BIONDINI CAVANELLAS - 20.1.4112
-	LEANDRO LIBï¿½RIO MACHADO DA SILVA - 19.2.4074
+	LEANDRO LIBÉRIO MACHADO DA SILVA - 19.2.4074
 */
 
 package programaprincipal;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 import classes.*;
 import funcoes.*;
@@ -35,7 +38,7 @@ public class Executavel {
 
 		do{
 			//recebendo do usuario qual a funcao a ser utilizada
-			System.out.println("\n\nDigite o numero da funÃ§Ã£o desejada(valor 0 interrompe a execuÃ§Ã£o): ");
+			System.out.println("\n\nDigite o numero da função desejada(valor 0 interrompe a execução): ");
 			funcao = entrada.nextInt();
 
 			//switch para a funcao escolhida pelo usuario
@@ -51,21 +54,20 @@ public class Executavel {
 					System.out.print("Digite o nome desejado: \n");
 					entrada.nextLine();
 					prop = entrada.nextLine();
-					if(funcoes. func2(imoveis, prop) == 1) System.out.println(prop + " Ã© proprietÃ¡rio\n");//printar dependendo do retorno da funcao 
-					else System.out.println(prop + " nÃ£o Ã© proprietÃ¡rio\n");
+					if(funcoes. func2(imoveis, prop) == 1) System.out.println(prop + " é proprietário\n");//printar dependendo do retorno da funcao 
+					else System.out.println(prop + " não é proprietário\n");
 				break;
 
 				case 3://funcao para filtrar imoveis de acordo com o valor como solicitado no enunciado 3
 					System.out.print("Digite o valor desejado: \n");					
 					valor = entrada.nextFloat();
-                                        imoveis_retorno = funcoes.func3(imoveis, valor, contador);
+                    imoveis_retorno = funcoes.func3(imoveis, valor, contador);
 
-                                        System.out.println("antes do loop");
-                                        for(i = 0; i < contador.get_tamanho(); i++) 
-                                            System.out.print(imoveis_retorno[i].toString());              
+                    for(i = 0; i < contador.get_tamanho(); i++) 
+                    	System.out.print(imoveis_retorno[i].toString());              
 
-                                        i = 0;
-                                        contador.set_tamanho(0);
+                     i = 0;
+                     contador.set_tamanho(0);
 				break;
 
 				case 4://filtrar imoveis de acordo com o numero de quartos no imovel
@@ -73,8 +75,8 @@ public class Executavel {
 					quartos = entrada.nextInt();
 					imoveis_retorno = funcoes.func4(imoveis, quartos, contador);
 
-                                        if(contador.get_tamanho() == 0)
-                                            System.out.print("Tem nÃ£o patrÃ£o, dificil nÃ£o ter quarto numa moradia ne kk");
+                    if(contador.get_tamanho() == 0)
+                    	System.out.print("Não há imóveis sem quartos");
                                         
 					for(i = 0; i < contador.get_tamanho(); i++)
 						System.out.print(imoveis_retorno[i]);
@@ -88,8 +90,8 @@ public class Executavel {
 					tipo = entrada.next();
 					imoveis_retorno = funcoes.func5(imoveis, tipo, contador);
 
-                                        if(contador.get_tamanho() == 0)
-                                            System.out.print("Deu erro patrÃ£o");
+                    if(contador.get_tamanho() == 0)
+                    	System.out.print("Não há esse tipo de imóvel\n");
                                         
 					for(i = 0; i < contador.get_tamanho(); i++)//printar os imoveis do tipo solicitado
 						System.out.print(imoveis_retorno[i].toString());
@@ -104,8 +106,8 @@ public class Executavel {
 					cidade = entrada.nextLine();
 					imoveis_retorno = funcoes.func6(imoveis, cidade, contador);
 
-                                        if(contador.get_tamanho() == 0)
-                                            System.out.print("Deu erro patrÃ£o");
+                    if(contador.get_tamanho() == 0)
+                    	System.out.print("Não há imóveis nessa cidade\n");
                                         
 					for(i = 0; i < contador.get_tamanho(); i++)//printar os imoveis da cidade inserida
 						System.out.print(imoveis_retorno[i].toString());
@@ -114,29 +116,30 @@ public class Executavel {
 					contador.set_tamanho(0);
 				break;
 
-//				case 7://filtrar os imoveis de acordo com o nome do proprietario
-//				{
-//					vector<vector<Imovel*>::iterator> vetor7;
-//					System.out.print("Digite o nome do proprietï¿½rio: ");
-//					cin.ignore();
-//					prop = entrada.nextLine();
-//
-//					vetor7 = funcoes.func7(imoveis, prop);
-//					if(!vetor7.empty()){//listar os imoveis do proprietario caso ele possua algum
-//						System.out.println("Os imï¿½veis de " + prop + " sï¿½o:");
-//							for(int i = 0; i < vetor7.size(); i++){
-//								System.out.println(vetor7.at(i));
-//							}
-//						vetor7.clear();
-//						break;
-//					}
-//					else{//caso o proprietario n tenha imoveis
-//						System.out.println(prop + " nï¿½o possui imoveis");
-//						vetor7.clear();
-//						break;
-//					}
-//				}
-//				break;
+				case 7://filtrar os imoveis de acordo com o nome do proprietario
+					//vector<vector<Imovel*>::iterator> vetor7;
+					List <Imovel> imoveis_func7 = new ArrayList<Imovel>();
+					for(i = 0; i < imoveis.length; i++) 
+						imoveis_func7.add(imoveis[i]);
+					
+					System.out.println("Insira o nome do proprietário que deseja pesquisar");
+					entrada.nextLine();
+					prop = entrada.nextLine();
+					Iterator<Imovel> it = funcoes.func7(imoveis_func7, prop);
+					
+					Imovel aux = new Imovel();
+					if(!it.hasNext()) {
+						System.out.println(prop + " não possui imóveis");
+						break;
+					}
+					
+					System.out.println("Os imóveis de " + prop + " são:");
+					while(it.hasNext()){
+						aux = it.next();
+						System.out.println(aux);
+					}																																					
+				
+				break;
 
 				case 8://listagem dos imoveis conforme solicitado no enunciado 8
 					System.out.print("Digite 1 para imprimir as propriedades no terminal e 2 para criar um arquivo: \n");

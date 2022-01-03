@@ -6,16 +6,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import classes.*;
 
 public class Metodos {
 
         public static Imovel[] propriedades;
         
-	public int func2(Imovel[] imoveis, String proprietario){
+	public int func2(Imovel[] imoveis, String prop){
 
 		for(int i = 0; i < imoveis.length; i++){
-			if(imoveis[i].get_prop().equals(proprietario)) 
+			if(imoveis[i].get_prop().equals(prop)) 
 				return 1;
 		}
 		return 0;	
@@ -60,7 +64,7 @@ public class Metodos {
 			if ((imoveis[i].getClass().equals(aux_casa.getClass())) && (tipo.equals("casa"))) imoveis_tipo[j++] = imoveis[i];
 			else if ((imoveis[i].getClass().equals(aux_ap.getClass())) && (tipo.equals("apartamento"))) imoveis_tipo[j++] = imoveis[i];
 			else if ((imoveis[i].getClass().equals(aux_chac.getClass())) && (tipo.equals("chacara"))) imoveis_tipo[j++] = imoveis[i];
-                        else continue;
+            else continue;
 		}
 		
 		cont.set_tamanho(j);
@@ -80,24 +84,42 @@ public class Metodos {
 		return propriedades;
 	}
 	
-	/*
-	//funcao que filtra os imoveis do proprietario inserido
-	vector<vector<Imovel*>::iterator> func7(vector<Imovel*> *imoveis, string proprietario){
-		vector<vector<Imovel*>::iterator> colecao_iterador;
-	  Imovel *imovel;
+	
+	//funcao que filtra os imoveis do prop inserido
+	public Iterator<Imovel> func7(List<Imovel> imoveis, String prop){
+		List<Imovel> aux = new ArrayList<Imovel>();
+		Imovel aux2 = new Imovel();
+		
+		Iterator<Imovel> it = imoveis.iterator();
+		
+		while(it.hasNext()) {
+			aux2 = it.next();
+			
+			if(aux2.get_prop().equals(prop)) {
+				aux.add(aux2);
+			}
+		}
+		Iterator<Imovel> it2 = aux.iterator();
+		
+		return it2;
+		
+		/*
+		ListIterator colecao_iterador;
+		Imovel imovel;
 
-		vector<Imovel*>::iterator it;
+		ListIterator it;
 	    for(it = imoveis->begin(); it != imoveis->end(); ++it) {
-	        imovel = *it;
+	        imovel = (Imovel) it;
 
-	        if(imovel->get_prop() == proprietario){
+	        if(imovel->get_prop() == prop){
 	            colecao_iterador.push_back(it);
 	        }
 	    }
 
 	    return colecao_iterador;
+	    */
 	}
-	*/
+	
 	
 	//funcao que cria um arquivo(opcao 2) ou lista os imoveis(opcao 1)
 	public void func8(Imovel[] imoveis, int opcao) throws IOException{
@@ -129,11 +151,11 @@ public class Metodos {
 			String linha;
 			
 			
-			FileInputStream arquivo = new FileInputStream("C:\\Users\\Arthur Silva Lima\\OneDrive\\Área de Trabalho\\tp2poo\\src\\main\\java\\funcoes\\database_imoveis.txt");
+			FileInputStream arquivo = new FileInputStream("database_imoveis.txt");
 			InputStreamReader input = new InputStreamReader(arquivo); 
 			BufferedReader br = new BufferedReader(input); 
 			
-			FileOutputStream novo_arquivo = new FileOutputStream("C:\\Users\\Arthur Silva Lima\\OneDrive\\Área de Trabalho\\tp2poo\\src\\main\\java\\funcoes\\dados.txt");
+			FileOutputStream novo_arquivo = new FileOutputStream("dados.txt");
 			PrintWriter pr = new PrintWriter(novo_arquivo);
 			do
 			{
@@ -167,7 +189,7 @@ public class Metodos {
 	}
 	
 	public Imovel[] cria_vetor(Imovel[] imoveis) throws IOException{
-		FileInputStream arquivo = new FileInputStream("C:\\Users\\Arthur Silva Lima\\OneDrive\\Área de Trabalho\\tp2poo\\src\\main\\java\\funcoes\\dados.txt");
+		FileInputStream arquivo = new FileInputStream("dados.txt");
 		InputStreamReader input = new InputStreamReader(arquivo); 
 		BufferedReader br = new BufferedReader(input); 
 		
