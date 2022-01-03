@@ -1,9 +1,9 @@
 /*
-	TRABALHO PRÁTICO DE PROGRAMAï¿½ï¿½O ORIENTADA A OBJETOS
+	TRABALHO PRï¿½TICO DE PROGRAMAï¿½ï¿½O ORIENTADA A OBJETOS
 	---------------------------------------------------
 	ARTHUR SILVA LIMA - 20.1.4019
 	BERNARDO BIONDINI CAVANELLAS - 20.1.4112
-	LEANDRO LIBÉRIO MACHADO DA SILVA - 19.2.4074
+	LEANDRO LIBï¿½RIO MACHADO DA SILVA - 19.2.4074
 */
 
 package programaprincipal;
@@ -35,7 +35,7 @@ public class Executavel {
 
 		do{
 			//recebendo do usuario qual a funcao a ser utilizada
-			System.out.println("\n\nDigite o numero da função desejada(valor 0 interrompe a execução): ");
+			System.out.println("\n\nDigite o numero da funÃ§Ã£o desejada(valor 0 interrompe a execuÃ§Ã£o): ");
 			funcao = entrada.nextInt();
 
 			//switch para a funcao escolhida pelo usuario
@@ -48,31 +48,34 @@ public class Executavel {
 				
 				break;
 				case 2://printa os imoveis do proprietario e seus dados de acordo com o enunciado 2
-					System.out.print("Digite o nome desejado: ");
+					System.out.print("Digite o nome desejado: \n");
 					entrada.nextLine();
 					prop = entrada.nextLine();
-					if(funcoes.func2(imoveis, prop) == 1) System.out.println(prop + " é proprietário\n");//printar dependendo do retorno da funcao 
-					else System.out.println(prop + " não é proprietário\n");
+					if(funcoes. func2(imoveis, prop) == 1) System.out.println(prop + " Ã© proprietÃ¡rio\n");//printar dependendo do retorno da funcao 
+					else System.out.println(prop + " nÃ£o Ã© proprietÃ¡rio\n");
 				break;
 
 				case 3://funcao para filtrar imoveis de acordo com o valor como solicitado no enunciado 3
-					System.out.print("Digite o valor desejado: ");					
+					System.out.print("Digite o valor desejado: \n");					
 					valor = entrada.nextFloat();
-                    imoveis_retorno = funcoes.func3(imoveis, valor, contador);
+                                        imoveis_retorno = funcoes.func3(imoveis, valor, contador);
 
-                    System.out.println("antes do loop");
-                    for(i = 0; i < contador.get_tamanho(); i++) 
-                    	System.out.print(imoveis_retorno[i].toString());              
-                    
-                    i = 0;
-                    contador.set_tamanho(0);
+                                        System.out.println("antes do loop");
+                                        for(i = 0; i < contador.get_tamanho(); i++) 
+                                            System.out.print(imoveis_retorno[i].toString());              
+
+                                        i = 0;
+                                        contador.set_tamanho(0);
 				break;
 
 				case 4://filtrar imoveis de acordo com o numero de quartos no imovel
-					System.out.print("Digite a quantidade de quartos desejada: ");
+					System.out.print("Digite a quantidade de quartos desejada: \n");
 					quartos = entrada.nextInt();
 					imoveis_retorno = funcoes.func4(imoveis, quartos, contador);
 
+                                        if(contador.get_tamanho() == 0)
+                                            System.out.print("Tem nÃ£o patrÃ£o, dificil nÃ£o ter quarto numa moradia ne kk");
+                                        
 					for(i = 0; i < contador.get_tamanho(); i++)
 						System.out.print(imoveis_retorno[i]);
 					
@@ -81,25 +84,31 @@ public class Executavel {
 				break;
 
 				case 5://funcao que filtra de acordo com o tipo de imovel (casa, chacara, apartamento)
-					System.out.print("Digite o tipo desejado: ");
+					System.out.print("Digite o tipo desejado: \n");
 					tipo = entrada.next();
-					System.out.println(tipo);
 					imoveis_retorno = funcoes.func5(imoveis, tipo, contador);
 
+                                        if(contador.get_tamanho() == 0)
+                                            System.out.print("Deu erro patrÃ£o");
+                                        
 					for(i = 0; i < contador.get_tamanho(); i++)//printar os imoveis do tipo solicitado
-						System.out.print(imoveis_retorno[i]);
+						System.out.print(imoveis_retorno[i].toString());
 					
 					i = 0;
 					contador.set_tamanho(0);
 				break;
 
 				case 6://filtrar imoveis de acordo com a cidade inserida
-					System.out.print("Digite a cidade desejada: ");
+					System.out.print("Digite a cidade desejada: \n");
+                                        entrada.nextLine();
 					cidade = entrada.nextLine();
 					imoveis_retorno = funcoes.func6(imoveis, cidade, contador);
 
+                                        if(contador.get_tamanho() == 0)
+                                            System.out.print("Deu erro patrÃ£o");
+                                        
 					for(i = 0; i < contador.get_tamanho(); i++)//printar os imoveis da cidade inserida
-						System.out.print(imoveis_retorno[i]);
+						System.out.print(imoveis_retorno[i].toString());
 					
 					i = 0;
 					contador.set_tamanho(0);
@@ -130,7 +139,7 @@ public class Executavel {
 //				break;
 
 				case 8://listagem dos imoveis conforme solicitado no enunciado 8
-					System.out.print("Digite 1 para imprimir as propriedades no terminal e 2 para criar um arquivo: ");
+					System.out.print("Digite 1 para imprimir as propriedades no terminal e 2 para criar um arquivo: \n");
 					opcao = entrada.nextInt();
 
 					funcoes.func8(imoveis, opcao);

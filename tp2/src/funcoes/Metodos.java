@@ -54,15 +54,18 @@ public class Metodos {
 		Casa aux_casa = new Casa();
 		Chacara aux_chac = new Chacara();
 		
+                
 		int j = 0;
 		for(int i = 0; i < imoveis.length; i++){
-			if ((imoveis[i].getClass()) == aux_casa.getClass() && (tipo == "casa")) imoveis_tipo[j++] = imoveis[i];
-			else if ((imoveis[i].getClass()) == aux_ap.getClass() && (tipo == "apartamento")) imoveis_tipo[j++] = imoveis[i];
-			else if ((imoveis[i].getClass()) == aux_chac.getClass() && (tipo == "chacara")) imoveis_tipo[j++] = imoveis[i];
+			if ((imoveis[i].getClass().equals(aux_casa.getClass())) && (tipo.equals("casa"))) imoveis_tipo[j++] = imoveis[i];
+			else if ((imoveis[i].getClass().equals(aux_ap.getClass())) && (tipo.equals("apartamento"))) imoveis_tipo[j++] = imoveis[i];
+			else if ((imoveis[i].getClass().equals(aux_chac.getClass())) && (tipo.equals("chacara"))) imoveis_tipo[j++] = imoveis[i];
+                        else continue;
 		}
 		
 		cont.set_tamanho(j);
-		return imoveis_tipo;
+
+                return imoveis_tipo;
 	}
 	
 	public Imovel[] func6(Imovel[] imoveis, String cidade, Contador cont){
@@ -70,9 +73,9 @@ public class Metodos {
 
 		int j = 0;
 		for(int i = 0; i < imoveis.length; i++){
-			if(imoveis[i].get_cidade() == cidade) propriedades[j++] = imoveis[i];
-		}
-		
+			if(imoveis[i].get_cidade().equals(cidade)) propriedades[j++] = imoveis[i];
+                }
+                
 		cont.set_tamanho(j);
 		return propriedades;
 	}
@@ -126,11 +129,11 @@ public class Metodos {
 			String linha;
 			
 			
-			FileInputStream arquivo = new FileInputStream("C:\\Users\\Leandro\\eclipse-workspace\\tp2-poo\\src\\funcoes\\database_imoveis.txt");
+			FileInputStream arquivo = new FileInputStream("C:\\Users\\Arthur Silva Lima\\OneDrive\\Área de Trabalho\\tp2poo\\src\\main\\java\\funcoes\\database_imoveis.txt");
 			InputStreamReader input = new InputStreamReader(arquivo); 
 			BufferedReader br = new BufferedReader(input); 
 			
-			FileOutputStream novo_arquivo = new FileOutputStream("C:\\Users\\Leandro\\eclipse-workspace\\tp2-poo\\src\\funcoes\\dados.txt");
+			FileOutputStream novo_arquivo = new FileOutputStream("C:\\Users\\Arthur Silva Lima\\OneDrive\\Área de Trabalho\\tp2poo\\src\\main\\java\\funcoes\\dados.txt");
 			PrintWriter pr = new PrintWriter(novo_arquivo);
 			do
 			{
@@ -164,7 +167,7 @@ public class Metodos {
 	}
 	
 	public Imovel[] cria_vetor(Imovel[] imoveis) throws IOException{
-		FileInputStream arquivo = new FileInputStream("C:\\Users\\Leandro\\eclipse-workspace\\tp2-poo\\src\\funcoes\\dados.txt");
+		FileInputStream arquivo = new FileInputStream("C:\\Users\\Arthur Silva Lima\\OneDrive\\Área de Trabalho\\tp2poo\\src\\main\\java\\funcoes\\dados.txt");
 		InputStreamReader input = new InputStreamReader(arquivo); 
 		BufferedReader br = new BufferedReader(input); 
 		

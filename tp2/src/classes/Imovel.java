@@ -100,6 +100,6 @@ public class Imovel {
 	}
 	
 	public String toString(){
-		return String.format("-----\n%s\n\t%.2f\n\t%d\n\t%s\n\t%s", this.get_prop(), this.get_valor(), this.get_quartos(),this.get_rua(), this.get_bairro(),this.get_cidade());
+		return String.format("-----\n%s\n\t%.2f\n\t%d\n\t%s\n\t%s\n\t%s", this.get_prop(), this.get_valor(), this.get_quartos(),this.get_rua(), this.get_bairro(),this.get_cidade());
 	}
 }
