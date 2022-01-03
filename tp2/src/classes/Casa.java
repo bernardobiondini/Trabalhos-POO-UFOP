@@ -31,10 +31,9 @@ public class Casa extends Imovel{
 		this.sala_jantar = sala_jantar;
 	}
 	
-	public void print_casa() {
-		print_imovel();
-		System.out.printf("\n\t Andares: " + this.get_andares());
-		System.out.printf("\n\t " + (this.get_sala_jantar() == 1 ? "Possui sala de jantar" : "Sem sala de jantar"));
+	public String toString() {
+		return String.format("%s\n\t%d\n\t%d\n-----",
+		super.toString(), this.get_andares(), this.get_sala_jantar());
 	}
 	
 	//void printAll();

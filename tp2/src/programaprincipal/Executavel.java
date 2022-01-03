@@ -1,107 +1,108 @@
 /*
-	TRABALHO PRï¿½TICO DE PROGRAMAï¿½ï¿½O ORIENTADA A OBJETOS
+	TRABALHO PRÁTICO DE PROGRAMAï¿½ï¿½O ORIENTADA A OBJETOS
 	---------------------------------------------------
 	ARTHUR SILVA LIMA - 20.1.4019
 	BERNARDO BIONDINI CAVANELLAS - 20.1.4112
-	LEANDRO LIBï¿½RIO MACHADO DA SILVA - 19.2.4074
+	LEANDRO LIBÉRIO MACHADO DA SILVA - 19.2.4074
 */
 
 package programaprincipal;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import classes.*;
-import funcoes.Metodos;
+import funcoes.*;
 import java.io.IOException;
 
 public class Executavel {
-	
-	public static List<Imovel> imoveis;
-	public static List<Imovel> imoveis_retorno;
-
 	public static void main(String[] args) throws IOException {
 		//inicializando vetores
-		imoveis = new ArrayList<>();
-		imoveis_retorno = new ArrayList<>();
-                Metodos funcoes = new Metodos();
-
-		//recebendo os dados do arquivo no vetor imoveis
-
-		((Imovel) imoveis).ler_dados();
+		Metodos funcoes = new Metodos();
+		
+		int total_imoveis = funcoes.ler_dados();
+		Imovel[] imoveis = new Imovel[total_imoveis];
+		Imovel[] imoveis_retorno = new Imovel[total_imoveis];
+		Contador contador = new Contador();
+		contador.set_tamanho(0);
+        
+		//recebendo os dados do arquivo no vetor imoveis        
+		imoveis = funcoes.cria_vetor(imoveis);
 
 		//inicializando variaveis para receber valores do vetor ou do usuario
 		Scanner entrada = new Scanner(System.in);
-		int funcao, quartos, opcao;
+		int funcao, quartos, opcao, i = 0;
 		float valor;
 		String prop, cidade, tipo;
 
 		do{
 			//recebendo do usuario qual a funcao a ser utilizada
-			System.out.print("Digite o numero da funï¿½ï¿½o desejada(valor 0 interrompe a execuï¿½ï¿½o): ");
+			System.out.println("\n\nDigite o numero da função desejada(valor 0 interrompe a execução): ");
 			funcao = entrada.nextInt();
 
 			//switch para a funcao escolhida pelo usuario
 			switch(funcao){
 				case 1://printa os imoveis e seus dados de acordo com o enunciado 1
-					for(int i = 0; i < imoveis.size(); i++)
-						System.out.print(imoveis.get(i));
+				for(i = 0; i < imoveis.length; i++) 
+					System.out.print(imoveis[i].toString());
+				
+				System.out.println("-----");
+				
 				break;
 				case 2://printa os imoveis do proprietario e seus dados de acordo com o enunciado 2
 					System.out.print("Digite o nome desejado: ");
-					
+					entrada.nextLine();
 					prop = entrada.nextLine();
-					if(funcoes.func2(imoveis, prop) == 1) System.out.println(prop + " ï¿½ proprietï¿½rio\n");//printar dependendo do retorno da funcao 
-					else System.out.println(prop + " Nï¿½o ï¿½ proprietï¿½rio\n");
+					if(funcoes.func2(imoveis, prop) == 1) System.out.println(prop + " é proprietário\n");//printar dependendo do retorno da funcao 
+					else System.out.println(prop + " não é proprietário\n");
 				break;
 
 				case 3://funcao para filtrar imoveis de acordo com o valor como solicitado no enunciado 3
-					System.out.print("Digite o valor desejado: ");
+					System.out.print("Digite o valor desejado: ");					
 					valor = entrada.nextFloat();
-                                        imoveis_retorno = funcoes.func3(imoveis, valor);
-					//for(auto & i : imoveis_retorno){
-					//	cout << *i;
-					//}
-					for(int i = 0; i < imoveis_retorno.size(); i++)//printando os imoveis com valor igual ou acima do inserido
-						System.out.print(imoveis_retorno.get(i));
-					imoveis_retorno.clear();
+                    imoveis_retorno = funcoes.func3(imoveis, valor, contador);
+
+                    System.out.println("antes do loop");
+                    for(i = 0; i < contador.get_tamanho(); i++) 
+                    	System.out.print(imoveis_retorno[i].toString());              
+                    
+                    i = 0;
+                    contador.set_tamanho(0);
 				break;
 
 				case 4://filtrar imoveis de acordo com o numero de quartos no imovel
 					System.out.print("Digite a quantidade de quartos desejada: ");
 					quartos = entrada.nextInt();
-					imoveis_retorno = funcoes.func4(imoveis, quartos);
-					//for(auto &i : imoveis_retorno){
-					//	cout << *i;
-					//}
-					for(int i = 0; i < imoveis_retorno.size(); i++)//printar os imoveis com quantidade igual ou maior que a solicitada
-						System.out.print(imoveis_retorno.get(i));
-					imoveis_retorno.clear();
+					imoveis_retorno = funcoes.func4(imoveis, quartos, contador);
+
+					for(i = 0; i < contador.get_tamanho(); i++)
+						System.out.print(imoveis_retorno[i]);
+					
+					i = 0;
+					contador.set_tamanho(0);
 				break;
 
 				case 5://funcao que filtra de acordo com o tipo de imovel (casa, chacara, apartamento)
 					System.out.print("Digite o tipo desejado: ");
 					tipo = entrada.next();
 					System.out.println(tipo);
-					imoveis_retorno = funcoes.func5(imoveis, tipo);
-					//for(auto &i : imoveis_retorno){
-					//	cout << *i;
-					//}
-					for(int i = 0; i < imoveis_retorno.size(); i++)//printar os imoveis do tipo solicitado
-						System.out.print(imoveis_retorno.get(i));
-					imoveis_retorno.clear();
+					imoveis_retorno = funcoes.func5(imoveis, tipo, contador);
+
+					for(i = 0; i < contador.get_tamanho(); i++)//printar os imoveis do tipo solicitado
+						System.out.print(imoveis_retorno[i]);
+					
+					i = 0;
+					contador.set_tamanho(0);
 				break;
 
 				case 6://filtrar imoveis de acordo com a cidade inserida
 					System.out.print("Digite a cidade desejada: ");
 					cidade = entrada.nextLine();
-					imoveis_retorno = funcoes.func6(imoveis, cidade);
-					//for(auto i = imoveis_retorno.rbegin(); i != imoveis_retorno.rend(); ++i){
-					//	cout << **i;
-					//}
-					for(int i = 0; i <  imoveis_retorno.size(); i++)//printar os imoveis da cidade inserida
-						imoveis_retorno.get(i);
-					imoveis_retorno.clear();
+					imoveis_retorno = funcoes.func6(imoveis, cidade, contador);
+
+					for(i = 0; i < contador.get_tamanho(); i++)//printar os imoveis da cidade inserida
+						System.out.print(imoveis_retorno[i]);
+					
+					i = 0;
+					contador.set_tamanho(0);
 				break;
 
 //				case 7://filtrar os imoveis de acordo com o nome do proprietario
@@ -136,7 +137,8 @@ public class Executavel {
 				break;
 			}
 		}while(funcao != 0);
-
+		
+		entrada.close();
 	}
 
 }

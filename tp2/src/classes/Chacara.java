@@ -72,12 +72,8 @@ public class Chacara extends Imovel{
 		this.piscina = piscina;
 	}
 	
-	public void print_chacara() {
-		print_imovel();
-		System.out.printf("\n\t " + (this.get_salao_festa() == 1 ? "Possui sal�o de festa" : "Sem sal�o de festa"));
-		System.out.printf("\n\t " + (this.get_salao_jogos() == 1 ? "Possui sal�o de jogos" : "Sem sal�o de jogos"));
-		System.out.printf("\n\t " + (this.get_campo_fut() == 1 ? "Possui campo de futebol" : "Sem campo de futebol"));
-		System.out.printf("\n\t " + (this.get_churras() == 1 ? "Possui churrasqueira" : "Sem churrasqueira"));
-		System.out.printf("\n\t " + (this.get_piscina() == 1 ? "Possui piscina" : "Sem piscina"));
+	public String toString() {
+		return String.format("%s\n\t%d\n\t%d\n\t%d\n\t%d\n\t%d\n-----",
+		super.toString(), this.get_salao_festa(), this.get_salao_jogos(), this.get_campo_fut(), this.get_churras(), this.get_piscina());
 	}
 }

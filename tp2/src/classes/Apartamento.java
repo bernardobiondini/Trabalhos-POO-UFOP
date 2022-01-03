@@ -60,11 +60,18 @@ public class Apartamento extends Imovel{
 		this.sacada = sacada;
 	}
 	
+	/*
 	public void print_ap() {
 		print_imovel();
 		System.out.printf("\n\t Andar: " + this.get_andar());
 		System.out.printf("\n\t Taxa de condominio: " + this.get_taxa_condo());
 		System.out.printf("\n\t " + (this.get_elev() == 1 ? "Possui elevador" : "Sem elevador"));
 		System.out.printf("\n\t " + (this.get_sacada() == 1 ? "Possui sacada" : "Sem sacada"));
+	}
+	*/
+	
+	public String toString() {
+		return String.format("%s\n\t%d\n\t%.2f\n\t%d\n\t%d\n-----",
+		super.toString(), this.get_andar(), this.get_taxa_condo(), this.get_elev(), this.get_sacada());
 	}
 }
