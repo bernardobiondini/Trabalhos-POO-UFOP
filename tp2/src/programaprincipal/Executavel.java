@@ -24,6 +24,10 @@ public class Executavel {
 		int total_imoveis = funcoes.ler_dados();
 		Imovel[] imoveis = new Imovel[total_imoveis];
 		Imovel[] imoveis_retorno = new Imovel[total_imoveis];
+		
+		//Criamos um objeto da classe Contador para podermos calcular qual será o tamanho
+		//do vetor que iremos retornar para a main, faremos isso para todas as funções, com 
+		//excessão da 2, 7 e 8.
 		Contador contador = new Contador();
 		contador.set_tamanho(0);
         

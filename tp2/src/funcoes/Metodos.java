@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,10 +15,12 @@ import classes.*;
 
 public class Metodos {
 
-        public static Imovel[] propriedades;
-        
+    public static Imovel[] propriedades;
+    
+    //Função simples, comparamos o nome do proprietário procurado com
+    //todos os proprietários de todos os imóveis e se o nome coincidir
+    //retornamos true, se não, retornamos false
 	public int func2(Imovel[] imoveis, String prop){
-
 		for(int i = 0; i < imoveis.length; i++){
 			if(imoveis[i].get_prop().equals(prop)) 
 				return 1;
@@ -25,6 +28,8 @@ public class Metodos {
 		return 0;	
 	}
 	
+	//Comparamos todos os imoveis com o valor desejado e se for igual ou menor
+	//colocamos aquele imovel no vetor propriedades, no final retornamos esse vetor
 	public Imovel[] func3(Imovel[] imoveis, float valor, Contador cont){
 		Imovel propriedades[] = new Imovel[imoveis.length];
 		
@@ -34,7 +39,9 @@ public class Metodos {
 				propriedades[j++] = imoveis[i];
 			}
 		}
+		
 		cont.set_tamanho(j);
+		
 		return propriedades;
 	}
 	
@@ -54,11 +61,13 @@ public class Metodos {
 	//funcao que filtra os imoveis de acordo com o tipo inserido
 	public Imovel[] func5(Imovel[] imoveis, String tipo, Contador cont){
 		Imovel[] imoveis_tipo = new Imovel[imoveis.length];
+		
+		//cria auxiliares para comparar com o tipo procurado 
 		Apartamento aux_ap = new Apartamento();
 		Casa aux_casa = new Casa();
 		Chacara aux_chac = new Chacara();
-		
-                
+        
+		//comparamos para ver quais são os imóveis do tipo procurado
 		int j = 0;
 		for(int i = 0; i < imoveis.length; i++){
 			if ((imoveis[i].getClass().equals(aux_casa.getClass())) && (tipo.equals("casa"))) imoveis_tipo[j++] = imoveis[i];
@@ -68,10 +77,37 @@ public class Metodos {
 		}
 		
 		cont.set_tamanho(j);
-
-                return imoveis_tipo;
+		
+		//Criamos um vetor auxiliar que armazenaremos o valor de todos os imoveis do tipo
+		//ainda desordenados
+		float []aux_ordenador = new float[j];
+		for(int i = 0; i < j; i++) {
+			aux_ordenador[i] = imoveis_tipo[i].get_valor();
+		}
+		
+		//Agora iremos ordenar esse vetor auxiliar e depois usaremos ele pra colocar
+		//em um novo vetor os imoveis nas posições de forma que fique ordenado e retornamos
+		//esse vetor
+		Arrays.sort(aux_ordenador);
+		int i = 0;
+		j = 0;
+		
+		Imovel[] imoveis_retorno = new Imovel[cont.get_tamanho()];
+		while(j < cont.get_tamanho()) {
+			if(imoveis_tipo[i].get_valor() == (aux_ordenador[j])) {
+				imoveis_retorno[j] = imoveis_tipo[i];
+				j++;
+				i = 0;
+			}
+			i++;
+			if (i == cont.get_tamanho())
+				i = 0;
+		}
+				
+        return imoveis_retorno;
 	}
 	
+	//Função que filtra imóveis pela cidade inserida
 	public Imovel[] func6(Imovel[] imoveis, String cidade, Contador cont){
 		Imovel[] propriedades = new Imovel[imoveis.length];
 
@@ -87,11 +123,11 @@ public class Metodos {
 	
 	//funcao que filtra os imoveis do prop inserido
 	public Iterator<Imovel> func7(List<Imovel> imoveis, String prop){
+		//Primeiro criamos auxiliares para poder fazer a iteração
 		List<Imovel> aux = new ArrayList<Imovel>();
 		Imovel aux2 = new Imovel();
 		
 		Iterator<Imovel> it = imoveis.iterator();
-		
 		while(it.hasNext()) {
 			aux2 = it.next();
 			
@@ -99,25 +135,12 @@ public class Metodos {
 				aux.add(aux2);
 			}
 		}
+		
+		//Fazemos outro iterador para iterar sobre o vetor auxiliar que contem os 
+		//imoveis do prop inserido
 		Iterator<Imovel> it2 = aux.iterator();
 		
 		return it2;
-		
-		/*
-		ListIterator colecao_iterador;
-		Imovel imovel;
-
-		ListIterator it;
-	    for(it = imoveis->begin(); it != imoveis->end(); ++it) {
-	        imovel = (Imovel) it;
-
-	        if(imovel->get_prop() == prop){
-	            colecao_iterador.push_back(it);
-	        }
-	    }
-
-	    return colecao_iterador;
-	    */
 	}
 	
 	
@@ -132,7 +155,6 @@ public class Metodos {
 				System.out.println(imoveis[i]);
 			}
 			else{
-				//imoveis[i].imprime(arquivo, imoveis[i]);
 				pr.printf("%s\n", imoveis[i].get_prop());
 				pr.printf("\t%.2f\n", imoveis[i].get_valor());
 				pr.printf("\t%d\n", imoveis[i].get_quartos());
@@ -145,6 +167,7 @@ public class Metodos {
 		arquivo.close();
 	}
 	
+	//Função que pega a base de dados desorganizada e cria outra com um item em cada linha
 	public int ler_dados() throws IOException {
 		int cont = 0;
 		try {
@@ -188,6 +211,7 @@ public class Metodos {
 		return cont;
 	}
 	
+	//Função que pega o txt dados.txt e monta o vetor de imoveis
 	public Imovel[] cria_vetor(Imovel[] imoveis) throws IOException{
 		FileInputStream arquivo = new FileInputStream("dados.txt");
 		InputStreamReader input = new InputStreamReader(arquivo); 
